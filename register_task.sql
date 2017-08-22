@@ -1,0 +1,5 @@
+CREATE OR REPLACE PROCEDURE REGISTER_TASK (task_id IN VARCHAR2,task_name IN VARCHAR2,max_employees IN NUMBER,DEP_ID IN VARCHAR2, status IN VARCHAR2)
+IS
+BEGIN
+  INSERT INTO HR_TASK VALUES(task_id,task_name,max_employees,dep_id,status);
+END REGISTER_TASK;
