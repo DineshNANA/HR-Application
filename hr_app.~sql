@@ -20,15 +20,3 @@ CREATE TABLE HR_Role(
 CREATE TABLE HR_Task_Assignment(
     task_id VARCHAR2(6) PRIMARY KEY,
     emp_id VARCHAR2(6) NOT NULL);
-    
-    
-CREATE TABLE HR_TASK (
-task_id VARCHAR2(6) PRIMARY KEY,
-task_name VARCHAR2(25) NOT NULL,
-max_employees NUMBER NOT NULL,
-dep_id VARCHAR2(6) NOT NULL,
-status VARCHAR2(25) NOT NULL,
-constraint fk_hr_task 
- FOREIGN KEY(dep_id)
- REFERENCES HR_DEPARTMENT(dep_id)
-);
