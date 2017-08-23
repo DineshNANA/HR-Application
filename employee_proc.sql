@@ -18,17 +18,6 @@ END get_all_employees;
 /
 
 
-CREATE OR REPLACE FUNCTION get_all_dep_employees(depId IN VARCHAR2)
-RETURN HR_Employee%ROWTYPE
-IS temp_row HR_Employee%ROWTYPE;
-
-BEGIN
-   SELECT * INTO temp_row FROM HR_Employee WHERE dep_id = depId;
-   RETURN temp_row;
-END get_all_dep_employees;
-/
-
-
 CREATE OR REPLACE PROCEDURE change_department(empId IN VARCHAR2, depId IN VARCHAR2)
 IS
 
