@@ -10,7 +10,5 @@ namespace HR_Application.DAL
     class DbConnect
     {
         string conn_string = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp;Unicode=True";
-
-
     }
 }
