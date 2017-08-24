@@ -31,5 +31,22 @@ namespace HR_Application
             }
             
         }
+
+        
+        Login login_form;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (login_form == null)
+            {
+                login_form = new Login();
+                login_form.MdiParent = this;
+                login_form.Show();
+            }
+            else
+            {
+                login_form.Activate();
+            }
+        }
     }
 }
