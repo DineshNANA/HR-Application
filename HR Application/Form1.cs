@@ -20,10 +20,14 @@ namespace HR_Application
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (form_add_emp == null)
-            { 
+            {
                 form_add_emp = new AddEmployee();
                 form_add_emp.MdiParent = this;
                 form_add_emp.Show();
+            }
+            else
+            {
+                form_add_emp.Activate();
             }
             
         }

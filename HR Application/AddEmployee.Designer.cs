@@ -160,6 +160,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Add New";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // radioButton1
             // 
@@ -252,6 +253,7 @@
             this.MinimizeBox = false;
             this.Name = "AddEmployee";
             this.Text = "Register Employee";
+            this.Load += new System.EventHandler(this.AddEmployee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +280,9 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+         
+
+
+
     }
 }

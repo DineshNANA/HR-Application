@@ -6,19 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
- 
+
 namespace HR_Application
 {
-    public partial class Login : Form
+    public partial class LogIn2 : Form
     {
-        public Login()
+        public LogIn2()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        
         }
     }
 }
