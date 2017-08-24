@@ -15,5 +15,17 @@ namespace HR_Application
         {
             InitializeComponent();
         }
+
+        AddEmployee form_add_emp;
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (form_add_emp == null)
+            { 
+                form_add_emp = new AddEmployee();
+                form_add_emp.MdiParent = this;
+                form_add_emp.Show();
+            }
+            
+        }
     }
 }
