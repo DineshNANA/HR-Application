@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Oracle.DataAccess.Types;
+using Oracle.DataAccess.Client;
  
 
 namespace HR_Application
@@ -15,6 +17,29 @@ namespace HR_Application
         public AddEmployee()
         {
             InitializeComponent();
+            ComboboxValue();
+        }
+
+        void ComboboxValue()
+        {
+            DepartmentClass dep = new DepartmentClass();
+            OracleDataReader ob = dep.Get_Department_list();
+            
+            while (ob.Read())
+            {
+                 
+                     string item = ob [1].ToString();
+                     comboBox3.Items.Add(item);
+
+                 
+                
+            }
+            comboBox2.Items.Add("Manager");
+            comboBox2.Items.Add("Administrator");
+            comboBox2.Items.Add("Labour");
+           
+             
+             
         }
 
         private void label2_Click(object sender, EventArgs e)

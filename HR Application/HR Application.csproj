@@ -84,6 +84,7 @@
       <DependentUpon>AddTask.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\Class1.cs" />
+    <Compile Include="DepartmentClass.cs" />
     <Compile Include="Employee_Class.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
