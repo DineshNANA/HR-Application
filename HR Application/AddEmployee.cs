@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -23,17 +24,22 @@ namespace HR_Application
         void ComboboxValue()
         {
             DepartmentClass dep = new DepartmentClass();
-            OracleDataReader ob = dep.Get_Department_list();
-            
-            while (ob.Read())
-            {
-                 
-                     string item = ob [1].ToString();
-                     comboBox3.Items.Add(item);
+             ArrayList ob = dep.Get_Department_list();
 
+             foreach (var item in ob)
+             {
+                 comboBox3.Items.Add(item);
+             }
+            //while (ob.Read())
+            //{
+                 
+            //         string item = ob [1].ToString();
+            //         comboBox3.Items.Add(item);
+                
                  
                 
-            }
+            //}
+             
             comboBox2.Items.Add("Manager");
             comboBox2.Items.Add("Administrator");
             comboBox2.Items.Add("Labour");

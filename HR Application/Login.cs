@@ -14,6 +14,14 @@ namespace HR_Application
         public Login()
         {
             InitializeComponent();
+            fillrolecombo();
+        }
+
+        void fillrolecombo()
+        {
+            comboBox1.Items.Add("Admin");
+            comboBox1.Items.Add("Manager");
+            comboBox1.Items.Add("labor");
         }
 
         private void button1_Click(object sender, EventArgs e)

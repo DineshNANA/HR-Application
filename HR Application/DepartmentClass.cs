@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Collections;
 using Oracle.DataAccess.Types;
 using Oracle.DataAccess.Client;
 
@@ -10,7 +11,8 @@ namespace HR_Application
 {
     class DepartmentClass
     {
-        string connstr = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp";
+        static string connstr = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp";
+        OracleConnection conn = new OracleConnection(connstr);
 
         
 
@@ -21,7 +23,7 @@ namespace HR_Application
             )
 
         {
-            OracleConnection conn = new OracleConnection(connstr);
+            
             conn.Open();
             OracleCommand cmd = new OracleCommand("HR_REGISTER_DEPARTMENT",conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -41,12 +43,14 @@ namespace HR_Application
             p1.Direction = ParameterDirection.Input;
 
             cmd.ExecuteNonQuery();
+            conn.Close();
   
         }
 
-        public OracleDataReader Get_Department_list()
+        public ArrayList Get_Department_list()
         {
-            OracleConnection conn = new OracleConnection(connstr);
+            ArrayList restl = new ArrayList();
+ 
             conn.Open();
             OracleCommand cmd = new OracleCommand("HR_GET_DEPARTMENT_DETAILS", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -55,8 +59,18 @@ namespace HR_Application
             p1.Direction = ParameterDirection.ReturnValue;
            // OracleDbType db = cmd.Parameters["return_value"].Value;
             OracleDataReader objReader = cmd.ExecuteReader();
-            return objReader;
+            
+            while (objReader.Read())
+            {
 
+                restl.Add(objReader[1].ToString());
+            }
+            conn.Close();
+            return restl;
+            
+            //return objReader;
+            // this return data need to pass in to the list and then need to return the list
+            // then can close the connection
             
         }
 

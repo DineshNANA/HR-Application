@@ -28,12 +28,12 @@ namespace HR_Application
         //}
 
         public void Emp_Register(
-            string a_emp_name, 
-            string a_nic, 
-            string a_contact, 
-            string a_address, 
-            string a_designation, 
-            string a_dep_id, 
+            string a_emp_name,
+            string a_nic,
+            string a_contact,
+            string a_address,
+            string a_designation,
+            string a_dep_id,
             string a_password)
         {
             OracleConnection conn = new OracleConnection(connstr);
@@ -71,8 +71,49 @@ namespace HR_Application
 
             cmd.ExecuteNonQuery();
 
+            conn.Close();
+
         }
 
-    }
+        public OracleDataReader Get_Employee_list(string dep_id)
+        {
+            OracleConnection conn = new OracleConnection(connstr);
+            conn.Open();
+            OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_LIST", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            OracleParameter p1 = cmd.Parameters.Add("depid", OracleDbType.Varchar2);
+            p1.Direction = ParameterDirection.Input;
+
+            OracleParameter p2 = cmd.Parameters.Add("return_value", OracleDbType.RefCursor);
+            p1.Direction = ParameterDirection.ReturnValue;
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            conn.Close();
+            return dr;
+
+        }
+
+        public OracleDataReader Get_Profile()
+        {
+            OracleConnection conn = new OracleConnection(connstr);
+            conn.Open();
+            OracleCommand cmd = new OracleCommand("HR_EMP_PROFILE_FUNCTION", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter p1 = cmd.Parameters.Add("empid", OracleDbType.Varchar2);
+            p1.Direction = ParameterDirection.Input;
+
+            OracleParameter p2 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
+            p2.Direction = ParameterDirection.ReturnValue;
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            conn.Close();
+            return dr; 
+        }
+
+
+
+        
+    }
 }
