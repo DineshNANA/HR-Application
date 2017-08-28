@@ -46,7 +46,7 @@ namespace HR_Application
             {
                 MessageBox.Show("Login ok");
                 this.Hide();
-                Form1 f1 = new Form1();
+                Form1 f1 = new Form1(emp_id, role);
                 f1.Show();
             }
             else if (result == 0)

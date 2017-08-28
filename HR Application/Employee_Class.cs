@@ -21,12 +21,35 @@ namespace HR_Application
         private string contact;
         private string address;
         private string designation;
+        private string dep_name;
         private string sex;
 
-        //public Employee()
-        //{
+        public Employee()
+        {
 
-        //}
+        }
+
+        public Employee(string emp_id)
+        {
+            conn.Open();
+            OracleCommand cmd = new OracleCommand("HR_EMP_PROFILE_FUNCTION",conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter p1 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
+            p1.Direction = ParameterDirection.ReturnValue;
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            this.emp_id = dr[0].ToString();
+            this.emp_name = dr[1].ToString();
+            this.nic = dr[2].ToString();
+            this.contact = dr[3].ToString();
+            this.address = dr[4].ToString();
+            this.designation = dr[5].ToString();
+            this.dep_name = dr[6].ToString();
+            this.sex = dr[7].ToString();
+
+        }
 
         public void Emp_Register(
             string a_emp_name,
@@ -76,10 +99,11 @@ namespace HR_Application
 
         }
 
-        public OracleDataReader Get_Employee_list(string dep_id)
+        public OracleDataReader Get_Employee_list(string empid)
         {
           
             conn.Open();
+             
             OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_LIST", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -95,14 +119,15 @@ namespace HR_Application
 
         }
 
-        public OracleDataReader Get_Profile()
+        
+        public OracleDataReader Get_Profile(string emp_id)
         {
-          
             conn.Open();
             OracleCommand cmd = new OracleCommand("HR_EMP_PROFILE_FUNCTION", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter p1 = cmd.Parameters.Add("empid", OracleDbType.Varchar2);
+            cmd.Parameters["empid"].Value = emp_id;
             p1.Direction = ParameterDirection.Input;
 
             OracleParameter p2 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
@@ -111,6 +136,12 @@ namespace HR_Application
             OracleDataReader dr = cmd.ExecuteReader();
             conn.Close();
             return dr; 
+        }
+
+        public void Edit_Profile(string emp_id,string emp_name,string dep_name,string address,string contact)
+        {
+
+
         }
 
         public Int16 Employee_Login(string emp_id, string paswd, string roll)
