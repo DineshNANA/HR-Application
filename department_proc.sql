@@ -3,6 +3,7 @@ CREATE OR REPLACE PROCEDURE create_department(
 BEGIN
     INSERT INTO HR_Department(Dep_Id, Dep_Name, Address)
     VALUES (depId, depName, address);
+    COMMIT;
 END create_department;
 /
 

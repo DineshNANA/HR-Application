@@ -14,6 +14,7 @@ CREATE TABLE HR_Employee(
     designation VARCHAR2(25),
     dep_id VARCHAR2(6) NOT NULL,
     status VARCHAR2(10) NOT NULL,
+    password VARCHAR2(40) NOT NULL,
     CONSTRAINT fk_employee FOREIGN KEY (dep_id) REFERENCES HR_Department(dep_id));
     
 CREATE TABLE HR_Role(
