@@ -11,12 +11,9 @@ namespace HR_Application
 {
     public partial class Form1 : Form
     {
-
-        
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         AddEmployee form_add_emp;
@@ -29,20 +26,15 @@ namespace HR_Application
                 form_add_emp.FormClosed +=new FormClosedEventHandler(form_add_emp_FormClosed);
                 form_add_emp.Show();
             }
-            else
-            {
-                form_add_emp.Activate();
-            }
-            
-        }
 
+        }
         private void form_add_emp_FormClosed(object sender, EventArgs e)
         {
             form_add_emp = null;
         }
-        
 
-        
+
+
         Login login_form;
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,6 +71,10 @@ namespace HR_Application
             login_form = null;
         }
 
-        
+        private void addNewDepartmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddDepartment dept = new AddDepartment();
+            dept.ShowDialog();
+        }
     }
 }

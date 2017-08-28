@@ -23,8 +23,8 @@ namespace HR_Application
 
         void ComboboxValue()
         {
-            DepartmentClass dep = new DepartmentClass();
-             ArrayList ob = dep.Get_Department_list();
+            Department dep = new Department();
+             ArrayList ob = dep.getDepartmentList();
 
              foreach (var item in ob)
              {

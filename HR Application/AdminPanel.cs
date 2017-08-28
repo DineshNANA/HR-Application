@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace HR_Application
 {
-    public partial class LogIn2 : Form
+    public partial class AdminPanel : Form
     {
-        public LogIn2()
+        public AdminPanel()
         {
             InitializeComponent();
         }
