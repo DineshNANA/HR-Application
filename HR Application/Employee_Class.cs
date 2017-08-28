@@ -12,7 +12,8 @@ namespace HR_Application
 
     public class Employee
     {
-        string connstr = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp";
+        static string connstr = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp";
+        OracleConnection conn = new OracleConnection(connstr);
 
         private string emp_id;
         private string emp_name;
@@ -36,7 +37,7 @@ namespace HR_Application
             string a_dep_id,
             string a_password)
         {
-            OracleConnection conn = new OracleConnection(connstr);
+            
             conn.Open();
             OracleCommand cmd = new OracleCommand("REGISTER_EMPLOYEE", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -77,7 +78,7 @@ namespace HR_Application
 
         public OracleDataReader Get_Employee_list(string dep_id)
         {
-            OracleConnection conn = new OracleConnection(connstr);
+          
             conn.Open();
             OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_LIST", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -96,7 +97,7 @@ namespace HR_Application
 
         public OracleDataReader Get_Profile()
         {
-            OracleConnection conn = new OracleConnection(connstr);
+          
             conn.Open();
             OracleCommand cmd = new OracleCommand("HR_EMP_PROFILE_FUNCTION", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -110,6 +111,34 @@ namespace HR_Application
             OracleDataReader dr = cmd.ExecuteReader();
             conn.Close();
             return dr; 
+        }
+
+        public Int16 Employee_Login(string emp_id, string paswd, string roll)
+        {
+            conn.Open();
+            OracleCommand cmd = new OracleCommand("HR_EMPLOYEE_LOGIN",conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter p1 = cmd.Parameters.Add("return_val",OracleDbType.Int16);
+            p1.Direction = ParameterDirection.ReturnValue;
+
+
+            OracleParameter p2 = cmd.Parameters.Add("a_emp_id", OracleDbType.Varchar2);
+            cmd.Parameters["a_emp_id"].Value = emp_id;
+            p2.Direction = ParameterDirection.Input;
+
+            OracleParameter p3 = cmd.Parameters.Add("a_paswd", OracleDbType.Varchar2);
+            cmd.Parameters["a_paswd"].Value = paswd;
+            p3.Direction = ParameterDirection.Input;
+
+            OracleParameter p4 = cmd.Parameters.Add("a_role", OracleDbType.Varchar2);
+            cmd.Parameters["a_role"].Value = roll;
+            p4.Direction = ParameterDirection.Input;
+            
+            cmd.ExecuteNonQuery();
+
+            Int16 num =Convert.ToInt16( cmd.Parameters["return_val"].Value.ToString());
+            return num;
         }
 
 
