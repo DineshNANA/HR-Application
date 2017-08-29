@@ -73,7 +73,7 @@ namespace HR_Application
 
         private void addNewDepartmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddDepartment dept = new AddDepartment();
+            EditDepartment dept = new EditDepartment();
             dept.ShowDialog();
         }
     }

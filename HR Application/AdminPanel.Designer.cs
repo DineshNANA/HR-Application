@@ -139,6 +139,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -246,6 +247,7 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "Edit Details";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button11
             // 

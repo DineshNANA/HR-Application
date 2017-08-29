@@ -29,7 +29,7 @@ namespace HR_Application
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AddDepartment addDept = new AddDepartment();
+            EditDepartment addDept = new EditDepartment("Add");
             addDept.Show();
         }
 
@@ -42,8 +42,20 @@ namespace HR_Application
 
         private void button8_Click(object sender, EventArgs e)
         {
-            DeleteDepartment deleteDept = new DeleteDepartment();
+            SelectDepartment deleteDept = new SelectDepartment("Delete");
             deleteDept.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddEmployee addEmp = new AddEmployee();
+            addEmp.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SelectDepartment selectDept = new SelectDepartment("Select");
+            selectDept.Show();
         }
     }
 }

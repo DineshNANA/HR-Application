@@ -14,8 +14,11 @@ namespace HR_Application
     {
         OracleConnection connection = Connection.Main();
         
-        public void createDepartment(string depId, string depName, string address, string depHead)
+        public string createDepartment(string depId, string depName, string address, string depHead)
         {
+            string result;
+            Console.WriteLine(depHead);
+
             try
             {
                 connection.Open();
@@ -29,12 +32,13 @@ namespace HR_Application
                 command.Parameters.Add("Dep_Head", OracleDbType.Varchar2, depHead, ParameterDirection.Input);
 
                 command.ExecuteNonQuery();
-                Console.WriteLine("Successfully added a Department");
+                result = "Success";
             }
             
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                result = "Failed";
             }
             
             finally
@@ -44,6 +48,8 @@ namespace HR_Application
                     connection.Close();
                 }
             }
+
+            return result;
         }
 
 
@@ -80,8 +86,10 @@ namespace HR_Application
         }
 
 
-        public void deleteDepartment(string depId)
+        public string deleteDepartment(string depId)
         {
+            string result;
+
             try
             {
                 connection.Open();
@@ -92,18 +100,20 @@ namespace HR_Application
                 command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
 
                 command.ExecuteNonQuery();
-                Console.WriteLine("Successfully deleted Department");
+                result = "Success";
             }
 
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                result = "Failed";
             }
 
             finally
             {
                 connection.Close();
             }
+            return result;
         }
 
         public ArrayList Get_Employee_list(string depid)

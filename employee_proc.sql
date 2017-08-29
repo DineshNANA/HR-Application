@@ -59,3 +59,11 @@ BEGIN
    WHERE emp_id = empId;
 END;
 /
+
+
+CREATE OR REPLACE FUNCTION hr_employee_details
+RETURN SYS_REFCURSOR IS employee_list SYS_REFCURSOR;
+BEGIN
+  OPEN employee_list FOR SELECT emp_id, emp_name FROM HR_Employee;
+  RETURN employee_list;
+END hr_employee_details;

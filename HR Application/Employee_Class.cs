@@ -136,7 +136,42 @@ namespace HR_Application
 
         }
 
-        
+
+        public ArrayList GetEmployeeList()
+        {
+            ArrayList empList = new ArrayList();
+
+            try
+            {
+                conn.Open();
+
+                OracleCommand command = new OracleCommand("HR_EMPLOYEE_DETAILS", conn);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("return_value", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                OracleDataReader objReader = command.ExecuteReader();
+
+                while (objReader.Read())
+                {
+                    empList.Add(objReader["Emp_Id"].ToString() + " - " + objReader["Emp_Name"].ToString());
+                }
+                Console.WriteLine("Returning Employee list");
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+            return empList;
+        }
+
+
         public OracleDataReader Get_Profile(string emp_id)
         {
             conn.Open();
