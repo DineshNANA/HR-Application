@@ -23,6 +23,16 @@ namespace HR_Application
         private string address;
         private string designation;
         private string dep_name;
+
+
+        public string Emp_name
+        {
+            get
+            {
+                return this.emp_name;
+            }
+        }
+
         
 
         public Employee()

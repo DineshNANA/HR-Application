@@ -45,9 +45,8 @@ namespace HR_Application
 
                 if (role == "Administrator")
                 {
-                    AdminPanel adminPanel = new AdminPanel();
+                    AdminPanel adminPanel = new AdminPanel(emp_id);
                     adminPanel.Show();
-                    Console.WriteLine("I'm here");
                 }
                 else
                 {

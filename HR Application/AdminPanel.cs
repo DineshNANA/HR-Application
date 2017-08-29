@@ -16,10 +16,34 @@ namespace HR_Application
             InitializeComponent();
         }
 
+        public AdminPanel(string empId)
+        {
+            InitializeComponent();
+            label6.Text = "EMP118";
+            label7.Text = "Dinesh Nana";
+            label8.Text = "Training & Development";
+            label9.Text = "ADMINISTRATOR";
+            label10.Text = "Administrator";
+
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
             AddDepartment addDept = new AddDepartment();
             addDept.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Dispose();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DeleteDepartment deleteDept = new DeleteDepartment();
+            deleteDept.Show();
         }
     }
 }
