@@ -106,10 +106,52 @@ namespace HR_Application
             }
         }
 
+        public ArrayList Get_Employee_list(string depid)
+        {
+            ArrayList emp_list = new ArrayList();
+            try
+            {
+                connection.Open();
+               
+                OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_LIST", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter p1 = cmd.Parameters.Add("depid", OracleDbType.Varchar2);
+                p1.Direction = ParameterDirection.Input;
+
+                OracleParameter p2 = cmd.Parameters.Add("return_value", OracleDbType.RefCursor);
+                p1.Direction = ParameterDirection.ReturnValue;
+
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    emp_list.Add(dr[1].ToString());
+                }
+
+                
+            }
+
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e);
+            }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return emp_list;
+             
+        }
 
         public ArrayList getDepartmentList()
         {
-            ArrayList results = new ArrayList();
+            ArrayList dep_list = new ArrayList();
 
             try
             {
@@ -123,7 +165,7 @@ namespace HR_Application
 
                 while (objReader.Read())
                 {
-                    results.Add(objReader["Dep_Name"].ToString());
+                    dep_list.Add(objReader["Dep_Name"].ToString());
                 }
                 Console.WriteLine("Returning Department list");
             }
@@ -138,7 +180,7 @@ namespace HR_Application
                 connection.Close();
             }
 
-            return results;
+            return dep_list;
         }
 
 

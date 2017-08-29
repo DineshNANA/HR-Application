@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using Oracle.DataAccess.Types;
 using Oracle.DataAccess.Client;
+using System.Collections;
 
 
 namespace HR_Application
@@ -22,7 +23,7 @@ namespace HR_Application
         private string address;
         private string designation;
         private string dep_name;
-        private string sex;
+        
 
         public Employee()
         {
@@ -47,7 +48,7 @@ namespace HR_Application
             this.address = dr[4].ToString();
             this.designation = dr[5].ToString();
             this.dep_name = dr[6].ToString();
-            this.sex = dr[7].ToString();
+         
 
         }
 
@@ -99,10 +100,11 @@ namespace HR_Application
 
         }
 
-        public OracleDataReader Get_Employee_list(string empid)
+        public ArrayList Get_Employee_list(string depid)
         {
           
             conn.Open();
+            ArrayList emp_list = new ArrayList();
              
             OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_LIST", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -114,8 +116,13 @@ namespace HR_Application
             p1.Direction = ParameterDirection.ReturnValue;
 
             OracleDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                emp_list.Add(dr[1].ToString());
+            }
             conn.Close();
-            return dr;
+            return emp_list;
 
         }
 
