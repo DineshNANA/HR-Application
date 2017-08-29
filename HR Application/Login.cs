@@ -28,17 +28,13 @@ namespace HR_Application
 
                 comboBox1.Items.Add(item);
             }
-
-            //comboBox1.Items.Add("Admin");
-            //comboBox1.Items.Add("Manager");
-            //comboBox1.Items.Add("labor");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Employee emp = new Employee();
             Int16 result;
-            string emp_id =textBox1.Text;
+            string emp_id = textBox1.Text;
             string psswd = textBox2.Text;
             string role = comboBox1.Text;
             result = emp.Employee_Login(emp_id, psswd, role);
@@ -46,8 +42,18 @@ namespace HR_Application
             {
                 MessageBox.Show("Login ok");
                 this.Hide();
-                Form1 f1 = new Form1(emp_id, role);
-                f1.Show();
+
+                if (role == "Administrator")
+                {
+                    AdminPanel adminPanel = new AdminPanel();
+                    adminPanel.Show();
+                    Console.WriteLine("I'm here");
+                }
+                else
+                {
+                    Form1 f1 = new Form1();
+                    f1.Show();
+                }
             }
             else if (result == 0)
                 MessageBox.Show("selected role type is invalid");

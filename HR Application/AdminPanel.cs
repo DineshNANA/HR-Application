@@ -15,5 +15,11 @@ namespace HR_Application
         {
             InitializeComponent();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AddDepartment addDept = new AddDepartment();
+            addDept.Show();
+        }
     }
 }
