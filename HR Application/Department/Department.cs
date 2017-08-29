@@ -151,7 +151,7 @@ namespace HR_Application
 
         public ArrayList getDepartmentList()
         {
-            ArrayList dep_list = new ArrayList();
+            ArrayList depList = new ArrayList();
 
             try
             {
@@ -165,7 +165,7 @@ namespace HR_Application
 
                 while (objReader.Read())
                 {
-                    dep_list.Add(objReader["Dep_Name"].ToString());
+                    depList.Add(objReader["Dep_Id"].ToString() + " - " + objReader["Dep_Name"].ToString());
                 }
                 Console.WriteLine("Returning Department list");
             }
@@ -180,7 +180,7 @@ namespace HR_Application
                 connection.Close();
             }
 
-            return dep_list;
+            return depList;
         }
 
 
