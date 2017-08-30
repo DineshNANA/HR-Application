@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Windows.Forms;
-using System.Collections;
 
 namespace HR_Application
 {
@@ -78,10 +77,18 @@ namespace HR_Application
             selectDept.Show();
         }
 
+
         private void button5_Click(object sender, EventArgs e)
         {
             EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
             empprofile.Show();
+
+          }
+        private void button14_Click(object sender, EventArgs e)
+        {
+            AddTask addTask = new AddTask();
+            addTask.Show();
+
         }
     }
 }

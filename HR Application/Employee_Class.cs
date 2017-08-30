@@ -21,8 +21,9 @@ namespace HR_Application
         private string nic;
         private string contact;
         private string address;
-        private string designation;
         private string dep_name;
+        private string email;
+        private string gender;
 
         public string Emp_id
         {
@@ -54,16 +55,22 @@ namespace HR_Application
             set { address = value; }
         }
 
-        public string Designation
-        {
-            get { return designation; }
-            set { designation = value; }
-        }
-
         public string Dep_name
         {
             get { return dep_name; }
             set { dep_name = value; }
+        }
+
+        public string Email
+        {
+            get { return this.email; }
+            set { this.email = value; }
+        }
+
+        public string Gender
+        {
+            get { return this.gender; }
+            set { this.gender = value; }
         }
 
         public Employee()

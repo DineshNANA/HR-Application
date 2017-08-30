@@ -9,11 +9,11 @@ CREATE TABLE HR_Employee(
     emp_id VARCHAR2(6) PRIMARY KEY,
     emp_name VARCHAR2(50) NOT NULL,
     nic_no VARCHAR2(12) NOT NULL,
-    address VARCHAR2(100),
+    gender VARCHAR2(1) NOT NULL,
     contact_no VARCHAR2(12),
-    designation VARCHAR2(25),
+    email VARCHAR2(12),
     dep_id VARCHAR2(6) NOT NULL,
-    status VARCHAR2(10) NOT NULL,
+    status VARCHAR2(10) DEFAULT 'Active' NOT NULL,
     password VARCHAR2(40) NOT NULL,
     CONSTRAINT fk_employee FOREIGN KEY (dep_id) REFERENCES HR_Department(dep_id));
     

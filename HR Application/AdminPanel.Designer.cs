@@ -354,6 +354,7 @@
             this.button14.TabIndex = 14;
             this.button14.Text = "Create";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 

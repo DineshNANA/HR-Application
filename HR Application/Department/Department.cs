@@ -220,8 +220,9 @@ namespace HR_Application
                     newEmployee.Nic = objReader["NIC_No"].ToString();
                     newEmployee.Address = objReader["Address"].ToString();
                     newEmployee.Contact = objReader["Contact_No"].ToString();
-                    newEmployee.Designation = objReader["Designation"].ToString();
                     newEmployee.Dep_name = objReader["Dep_Id"].ToString();
+                    newEmployee.Email = objReader["Email"].ToString();
+                    newEmployee.Gender = objReader["Gender"].ToString();
                     depEmpList.Add(newEmployee);
                 }
                 Console.WriteLine("Returning list of Employee objects");
