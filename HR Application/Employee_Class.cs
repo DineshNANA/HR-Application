@@ -77,6 +77,10 @@ namespace HR_Application
             this.emp_id = emp_id;
         }
 
+
+        //register Employee
+
+
         public void Emp_Register(
             string a_emp_name,
             string a_nic,
@@ -85,8 +89,9 @@ namespace HR_Application
             string a_password,
             string a_email,
             string a_gender,
-            string a_status,
-            string a_addresss)
+            string a_addresss,
+            string a_status
+            )
         {
             try
             {
@@ -122,12 +127,12 @@ namespace HR_Application
                 cmd.Parameters["gender"].Value = a_gender;
                 p7.Direction = ParameterDirection.Input;
 
-                OracleParameter p8 = cmd.Parameters.Add("status", OracleDbType.Varchar2);
-                cmd.Parameters["status"].Value = a_gender;
+                OracleParameter p8 = cmd.Parameters.Add("address", OracleDbType.Varchar2);
+                cmd.Parameters["address"].Value = a_addresss;
                 p8.Direction = ParameterDirection.Input;
 
-                OracleParameter p9 = cmd.Parameters.Add("address", OracleDbType.Varchar2);
-                cmd.Parameters["address"].Value = a_addresss;
+                OracleParameter p9 = cmd.Parameters.Add("status", OracleDbType.Varchar2);
+                cmd.Parameters["status"].Value = a_status;
                 p9.Direction = ParameterDirection.Input;
 
                 cmd.ExecuteNonQuery();
@@ -337,7 +342,6 @@ namespace HR_Application
                 OracleDataReader dr = cmd.ExecuteReader();
                 dr.Read();
                 emp_profile.Add(dr[0].ToString());      //emp_id
-                Console.WriteLine(dr[0].ToString());
                 emp_profile.Add(dr[1].ToString());      //emp_name
                 emp_profile.Add(dr[2].ToString());      //nic_no
                 emp_profile.Add(dr[3].ToString());      //address

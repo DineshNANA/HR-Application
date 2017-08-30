@@ -14,6 +14,7 @@ namespace HR_Application
     public partial class AdminPanel : Form
     {
         Employee me;
+        string emp_id;
 
         public AdminPanel()
         {
@@ -23,6 +24,7 @@ namespace HR_Application
         public AdminPanel(string empId)
         {
             InitializeComponent();
+            this.emp_id = empId;
             me = new Employee(empId);
             Load +=new EventHandler(AdminPanel_Load);
             label10.Text = "Administrator";
@@ -74,6 +76,12 @@ namespace HR_Application
         {
             SelectDepartment selectDept = new SelectDepartment("EmpList");
             selectDept.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
+            empprofile.Show();
         }
     }
 }
