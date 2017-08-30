@@ -71,6 +71,12 @@
     <Compile Include="Department\EditDepartment.Designer.cs">
       <DependentUpon>EditDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Department\EmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Department\EmployeeList.Designer.cs">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee\AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="Role_Class.cs" />
     <EmbeddedResource Include="Department\EditDepartment.resx">
       <DependentUpon>EditDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Department\EmployeeList.resx">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>

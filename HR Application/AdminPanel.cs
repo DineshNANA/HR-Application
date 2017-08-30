@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace HR_Application
 {
@@ -55,6 +56,12 @@ namespace HR_Application
         private void button7_Click(object sender, EventArgs e)
         {
             SelectDepartment selectDept = new SelectDepartment("Select");
+            selectDept.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            SelectDepartment selectDept = new SelectDepartment("EmpList");
             selectDept.Show();
         }
     }

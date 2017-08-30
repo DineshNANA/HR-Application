@@ -36,3 +36,12 @@ BEGIN
    RETURN temp_row;
 END get_all_dep_employees;
 /
+
+
+CREATE OR REPLACE FUNCTION hr_employee_list(depId IN VARCHAR2)
+RETURN SYS_REFCURSOR IS employee_list SYS_REFCURSOR;
+BEGIN
+  OPEN employee_list FOR SELECT * FROM HR_Employee WHERE dep_id = depId;
+  RETURN employee_list;
+END hr_employee_list;
+/
