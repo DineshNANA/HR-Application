@@ -94,5 +94,10 @@ namespace HR_Application
             textBox3.Text = "";
             comboBox1.Text = "Not assigned";
         }
+
+        private void EditDepartment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
