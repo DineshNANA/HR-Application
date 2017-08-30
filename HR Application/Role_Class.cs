@@ -11,15 +11,13 @@ namespace HR_Application
 {
     class Role_Class
     {
-         
-        static string connstr = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp";
-        OracleConnection conn = new OracleConnection(connstr);
+        OracleConnection connection = Connection.Main();
 
         public ArrayList Get_Role_Details()
         {
-            conn.Open();
+            connection.Open();
             ArrayList restl = new ArrayList();
-            OracleCommand cmd = new OracleCommand("HR_GET_ROLE_DETAILS",conn);
+            OracleCommand cmd = new OracleCommand("HR_GET_ROLE_DETAILS", connection);
             cmd.CommandType = CommandType.StoredProcedure;
             OracleParameter p1 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
             p1.Direction = ParameterDirection.ReturnValue;
@@ -30,11 +28,37 @@ namespace HR_Application
                 restl.Add(dr[1].ToString());
 
             }
-            conn.Close();
+            connection.Close();
             return restl;
-
         }
+
+        public ArrayList GetRoleList()
+        {
+            ArrayList roleList = new ArrayList();
+
+            try
+            {
+                connection.Open();
+
+                OracleCommand command = new OracleCommand("HR_GET_ROLE_DETAILS", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("return_value", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                OracleDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    roleList.Add(dataReader["Role_Id"].ToString() + " - " + dataReader["Role_Name"].ToString());
+                }
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { connection.Close(); }
+
+            return roleList;
+        }
+
     }
 
-    
 }
