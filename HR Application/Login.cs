@@ -48,11 +48,17 @@ namespace HR_Application
                     AdminPanel adminPanel = new AdminPanel(emp_id);
                     adminPanel.Show();
                 }
-                else
+                else if(role == "Manager")
                 {
-                    Form1 f1 = new Form1();
-                    f1.Show();
+                    ManagerPanel managePanel = new ManagerPanel();
+                    managePanel.Show();
                 }
+                else if (role == "User")
+                {
+                    EmployeePanel employeePanel = new EmployeePanel();
+                    employeePanel.Show();
+                }
+                 
             }
             else if (result == 0)
                 MessageBox.Show("selected role type is invalid");

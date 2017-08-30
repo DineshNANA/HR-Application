@@ -24,7 +24,7 @@ namespace HR_Application
         void ComboboxValue()
         {
             Department dep = new Department();
-             ArrayList ob = dep.getDepartmentList();
+            ArrayList ob = dep.getDepartmentList();
 
              foreach (var item in ob)
              {
@@ -57,15 +57,21 @@ namespace HR_Application
         {
             string emp_name = textBox2.Text;
             string nic = textBox4.Text;
-            string address = "GALLE";
-            string contact = textBox5.Text;
+            string contact = textBox1.Text;
+            string dep_id = comboBox3.Text.Substring(0, 6);
+            string pswd = "ifs";
+            string email = textBox5.Text;
+            string gender = "M";
+            string status = "Active";
+            string address = textBox3.Text;
+            
+            
            
-            string designation = "ADMINISTRATOR";
-            string dep_id = "DEP008";
-            string pswd = "DINESH";
+           
  
             Employee emp_obj = new Employee();
-            emp_obj.Emp_Register(emp_name,nic, address,contact,designation,dep_id,pswd);
+            emp_obj.Emp_Register(emp_name, nic, contact,dep_id, pswd, email, gender, status,address);
+            MessageBox.Show("Employee Successfully Added");
 
         }
 

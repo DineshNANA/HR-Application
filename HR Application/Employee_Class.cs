@@ -81,15 +81,17 @@ namespace HR_Application
             string a_emp_name,
             string a_nic,
             string a_contact,
-            string a_address,
-            string a_designation,
             string a_dep_id,
-            string a_password)
+            string a_password,
+            string a_email,
+            string a_gender,
+            string a_status,
+            string a_addresss)
         {
             try
             {
                 conn.Open();
-                OracleCommand cmd = new OracleCommand("REGISTER_EMPLOYEE", conn);
+                OracleCommand cmd = new OracleCommand("HR_REGISTER_EMPLOYEE", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter p1 = cmd.Parameters.Add("EMP_NAME", OracleDbType.Varchar2);
@@ -100,25 +102,33 @@ namespace HR_Application
                 cmd.Parameters["NIC_NO"].Value = a_nic;
                 p2.Direction = ParameterDirection.Input;
 
-                OracleParameter p3 = cmd.Parameters.Add("ADDRESS", OracleDbType.Varchar2);
-                cmd.Parameters["ADDRESS"].Value = a_address;
+                OracleParameter p3 = cmd.Parameters.Add("contact_no", OracleDbType.Varchar2);
+                cmd.Parameters["contact_no"].Value = a_contact;
                 p3.Direction = ParameterDirection.Input;
 
-                OracleParameter p4 = cmd.Parameters.Add("CONTACT_NO", OracleDbType.Varchar2);
-                cmd.Parameters["CONTACT_NO"].Value = a_contact;
+                OracleParameter p4 = cmd.Parameters.Add("dep_id", OracleDbType.Varchar2);
+                cmd.Parameters["dep_id"].Value = a_dep_id;
                 p4.Direction = ParameterDirection.Input;
 
-                OracleParameter p5 = cmd.Parameters.Add("DESIGNATION", OracleDbType.Varchar2);
-                cmd.Parameters["DESIGNATION"].Value = a_designation;
+                OracleParameter p5 = cmd.Parameters.Add("password_", OracleDbType.Varchar2);
+                cmd.Parameters["password_"].Value = a_password;
                 p5.Direction = ParameterDirection.Input;
 
-                OracleParameter p6 = cmd.Parameters.Add("DEP_ID", OracleDbType.Varchar2);
-                cmd.Parameters["DEP_ID"].Value = a_dep_id;
+                OracleParameter p6 = cmd.Parameters.Add("email", OracleDbType.Varchar2);
+                cmd.Parameters["email"].Value = a_email;
                 p6.Direction = ParameterDirection.Input;
 
-                OracleParameter p7 = cmd.Parameters.Add("PASSWORD", OracleDbType.Varchar2);
-                cmd.Parameters["PASSWORD"].Value = a_password;
+                OracleParameter p7 = cmd.Parameters.Add("gender", OracleDbType.Varchar2);
+                cmd.Parameters["gender"].Value = a_gender;
                 p7.Direction = ParameterDirection.Input;
+
+                OracleParameter p8 = cmd.Parameters.Add("status", OracleDbType.Varchar2);
+                cmd.Parameters["status"].Value = a_gender;
+                p8.Direction = ParameterDirection.Input;
+
+                OracleParameter p9 = cmd.Parameters.Add("address", OracleDbType.Varchar2);
+                cmd.Parameters["address"].Value = a_addresss;
+                p9.Direction = ParameterDirection.Input;
 
                 cmd.ExecuteNonQuery();
             }
@@ -307,7 +317,7 @@ namespace HR_Application
         public ArrayList Get_Profile()
         {
             ArrayList emp_profile = new ArrayList();
-            string emp_id = "EMP118";
+            string emp_id = this.emp_id;
             try
             {
                 Console.WriteLine("Connection opens");

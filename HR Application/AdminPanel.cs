@@ -22,10 +22,7 @@ namespace HR_Application
         {
             InitializeComponent();
             me = new Employee(empId);
-            //label6.Text = "EMP118";
-            //label7.Text = "Dinesh Nana";
-            //label8.Text = "Training & Development";
-            //label9.Text = "ADMINISTRATOR";
+            Load +=new EventHandler(AdminPanel_Load);
             label10.Text = "Administrator";
 
         }
