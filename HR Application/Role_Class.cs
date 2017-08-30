@@ -11,15 +11,13 @@ namespace HR_Application
 {
     class Role_Class
     {
-         
-        static string connstr = "Data Source=CMBTRNDB02/APP8SP2;User ID=ifsapp;Password=ifsapp";
-        OracleConnection conn = new OracleConnection(connstr);
+        OracleConnection conn = Connection.Main();
 
         public ArrayList Get_Role_Details()
         {
             conn.Open();
             ArrayList restl = new ArrayList();
-            OracleCommand cmd = new OracleCommand("HR_GET_ROLE_DETAILS",conn);
+            OracleCommand cmd = new OracleCommand("HR_GET_ROLE_DETAILS", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             OracleParameter p1 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
             p1.Direction = ParameterDirection.ReturnValue;
@@ -32,8 +30,8 @@ namespace HR_Application
             }
             conn.Close();
             return restl;
-
         }
+
 
         public ArrayList GetRoleDetails()
         {
@@ -47,7 +45,7 @@ namespace HR_Application
 
             while (dr.Read())
             {
-                 
+
                 restl.Add(dr["Role_ID"].ToString()+"-"+ dr["ROLE_NAME"].ToString());
 
             }
@@ -55,7 +53,7 @@ namespace HR_Application
             return restl;
 
         }
+
     }
 
-    
 }

@@ -27,7 +27,6 @@ namespace HR_Application
             me = new Employee(empId);
             Load +=new EventHandler(AdminPanel_Load);
             label10.Text = "Administrator";
-
         }
 
         private void AdminPanel_Load(object sender, EventArgs e)
@@ -77,18 +76,16 @@ namespace HR_Application
             selectDept.Show();
         }
 
-
         private void button5_Click(object sender, EventArgs e)
         {
             EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
             empprofile.Show();
+        }
 
-          }
         private void button14_Click(object sender, EventArgs e)
         {
             AddTask addTask = new AddTask();
             addTask.Show();
-
         }
     }
 }
