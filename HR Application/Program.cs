@@ -15,7 +15,16 @@ namespace HR_Application
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminPanel());
+            Application.Run(new Login());
+            //Login  fLogin = new Login ();
+            //if (fLogin.ShowDialog() == DialogResult.OK)
+            //{
+            //    Application.Run(new AdminPanel());
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Collections;
 using System.Windows.Forms;
 using System.Collections;
 
@@ -12,6 +13,8 @@ namespace HR_Application
 {
     public partial class AdminPanel : Form
     {
+        Employee me;
+
         public AdminPanel()
         {
             InitializeComponent();
@@ -20,12 +23,23 @@ namespace HR_Application
         public AdminPanel(string empId)
         {
             InitializeComponent();
-            label6.Text = "EMP118";
-            label7.Text = "Dinesh Nana";
-            label8.Text = "Training & Development";
-            label9.Text = "ADMINISTRATOR";
+            me = new Employee(empId);
+            //label6.Text = "EMP118";
+            //label7.Text = "Dinesh Nana";
+            //label8.Text = "Training & Development";
+            //label9.Text = "ADMINISTRATOR";
             label10.Text = "Administrator";
 
+        }
+
+        private void AdminPanel_Load(object sender, EventArgs e)
+        {
+            ArrayList emp_data = new ArrayList();
+            emp_data = me.Get_Profile();
+            label6.Text = emp_data[0].ToString();
+            label7.Text = emp_data[1].ToString();
+            label8.Text = emp_data[6].ToString();
+            label9.Text = emp_data[5].ToString();
         }
 
         private void button6_Click(object sender, EventArgs e)

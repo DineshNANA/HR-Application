@@ -139,6 +139,8 @@ namespace HR_Application
                     emp_list.Add(dr[1].ToString());
                 }
 
+                dr.Close();
+
                 
             }
 
@@ -150,6 +152,7 @@ namespace HR_Application
 
             finally
             {
+                
                 if (connection.State == ConnectionState.Open)
                 {
                     connection.Close();
@@ -177,6 +180,7 @@ namespace HR_Application
                 {
                     depList.Add(objReader["Dep_Id"].ToString() + " - " + objReader["Dep_Name"].ToString());
                 }
+                objReader.Close();
                 Console.WriteLine("Returning Department list");
             }
 
