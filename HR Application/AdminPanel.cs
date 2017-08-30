@@ -37,7 +37,7 @@ namespace HR_Application
             label6.Text = emp_data[0].ToString();
             label7.Text = emp_data[1].ToString();
             label8.Text = emp_data[6].ToString();
-            label9.Text = emp_data[5].ToString();
+           
         }
 
         private void button6_Click(object sender, EventArgs e)

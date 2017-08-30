@@ -97,7 +97,8 @@ namespace HR_Application
             string a_email,
             string a_gender,
             string a_addresss,
-            string a_status
+            string a_status,
+            string a_role_id
             )
         {
             try
@@ -141,6 +142,10 @@ namespace HR_Application
                 OracleParameter p9 = cmd.Parameters.Add("status", OracleDbType.Varchar2);
                 cmd.Parameters["status"].Value = a_status;
                 p9.Direction = ParameterDirection.Input;
+
+                OracleParameter p10 = cmd.Parameters.Add("role_id", OracleDbType.Varchar2);
+                cmd.Parameters["role_id"].Value = a_role_id;
+                p10.Direction = ParameterDirection.Input;
 
                 cmd.ExecuteNonQuery();
             }

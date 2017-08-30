@@ -25,10 +25,16 @@ namespace HR_Application
         {
             Department dep = new Department();
             ArrayList ob = dep.getDepartmentList();
+            Role_Class role = new Role_Class();
+            ArrayList res = role.GetRoleDetails();
 
              foreach (var item in ob)
              {
                  comboBox3.Items.Add(item);
+             }
+             foreach (var item in res)
+             {
+                 comboBox2.Items.Add(item);
              }
             //while (ob.Read())
             //{
@@ -40,9 +46,9 @@ namespace HR_Application
                 
             //}
              
-            comboBox2.Items.Add("Manager");
-            comboBox2.Items.Add("Administrator");
-            comboBox2.Items.Add("Labour");
+            //comboBox2.Items.Add("Manager");
+            //comboBox2.Items.Add("Administrator");
+            //comboBox2.Items.Add("Labour");
            
              
              
@@ -63,6 +69,7 @@ namespace HR_Application
             string email = textBox5.Text;
             string gender = "M";
             string status = "Active";
+            string role_id = comboBox2.Text.Substring(0, 6);
             string address = textBox3.Text;
             
             
@@ -70,7 +77,7 @@ namespace HR_Application
            
  
             Employee emp_obj = new Employee();
-            emp_obj.Emp_Register(emp_name, nic, contact,dep_id, pswd, email, gender, address,status);
+            emp_obj.Emp_Register(emp_name, nic, contact,dep_id, pswd, email, gender, address,status,role_id);
             MessageBox.Show("Employee Successfully Added");
 
         }
