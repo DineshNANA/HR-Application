@@ -24,16 +24,47 @@ namespace HR_Application
         private string designation;
         private string dep_name;
 
+        public string Emp_id
+        {
+            get { return emp_id; }
+            set { emp_id = value; }
+        }
 
         public string Emp_name
         {
-            get
-            {
-                return this.emp_name;
-            }
+            get { return emp_name; }
+            set { emp_name = value; }
         }
 
-        
+        public string Nic
+        {
+            get { return nic; }
+            set { nic = value; }
+        }
+
+        public string Contact
+        {
+            get { return contact; }
+            set { contact = value; }
+        }
+
+        public string Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        public string Designation
+        {
+            get { return designation; }
+            set { designation = value; }
+        }
+
+        public string Dep_name
+        {
+            get { return dep_name; }
+            set { dep_name = value; }
+        }
 
         public Employee()
         {
