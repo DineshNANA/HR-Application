@@ -197,9 +197,43 @@ namespace HR_Application
             return depList;
         }
 
+        public List<Employee> GetEmployeeList(string depId)
+        {
+            List<Employee> depEmpList = new List<Employee>();
 
+            try
+            {
+                connection.Open();
 
+                OracleCommand command = new OracleCommand("HR_EMPLOYEE_LIST", connection);
+                command.CommandType = CommandType.StoredProcedure;
 
+                command.Parameters.Add("employee_list", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                command.Parameters.Add("dep_id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
+                OracleDataReader objReader = command.ExecuteReader();
+
+                while (objReader.Read())
+                {
+                    Employee newEmployee = new Employee();
+                    newEmployee.Emp_id = objReader["Emp_Id"].ToString();
+                    newEmployee.Emp_name = objReader["Emp_Name"].ToString();
+                    newEmployee.Nic = objReader["NIC_No"].ToString();
+                    newEmployee.Address = objReader["Address"].ToString();
+                    newEmployee.Contact = objReader["Contact_No"].ToString();
+                    newEmployee.Designation = objReader["Designation"].ToString();
+                    newEmployee.Dep_name = objReader["Dep_Id"].ToString();
+                    depEmpList.Add(newEmployee);
+                }
+                Console.WriteLine("Returning list of Employee objects");
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { connection.Close(); }
+
+            return depEmpList;
+        }
 
     }
+
 }

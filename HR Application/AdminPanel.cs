@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace HR_Application
 {
     public partial class AdminPanel : Form
     {
         Employee me;
+
         public AdminPanel()
         {
             InitializeComponent();
@@ -25,6 +27,16 @@ namespace HR_Application
             Load +=new EventHandler(AdminPanel_Load);
             label10.Text = "Administrator";
 
+        }
+
+        private void AdminPanel_Load(object sender, EventArgs e)
+        {
+            ArrayList emp_data = new ArrayList();
+            emp_data = me.Get_Profile();
+            label6.Text = emp_data[0].ToString();
+            label7.Text = emp_data[1].ToString();
+            label8.Text = emp_data[6].ToString();
+            label9.Text = emp_data[5].ToString();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -58,14 +70,10 @@ namespace HR_Application
             selectDept.Show();
         }
 
-        private void AdminPanel_Load(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)
         {
-            ArrayList emp_data = new ArrayList();
-            emp_data = me.Get_Profile();
-            label6.Text = emp_data[0].ToString();
-            label7.Text = emp_data[1].ToString();
-            label8.Text = emp_data[6].ToString();
-            label9.Text = emp_data[5].ToString();
+            SelectDepartment selectDept = new SelectDepartment("EmpList");
+            selectDept.Show();
         }
     }
 }
