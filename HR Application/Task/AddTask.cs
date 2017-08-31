@@ -18,10 +18,8 @@ namespace HR_Application
 
             Department department = new Department();
             ArrayList deptList = department.getDepartmentList();
-            foreach (string dept in deptList)
-            {
-                comboBox1.Items.Add(dept);
-            }
+            foreach (string dept in deptList) { comboBox1.Items.Add(dept); }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -30,7 +28,7 @@ namespace HR_Application
             string taskName = textBox2.Text;
             decimal maxEmployees = numericUpDown1.Value;
             string depId = comboBox1.Text.Substring(0, 6);
-            string status = "Active";
+            string status = comboBox2.Text;
 
             Task task = new Task();
             task.CreateTask(taskId, taskName, maxEmployees, depId, status);

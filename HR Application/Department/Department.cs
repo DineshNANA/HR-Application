@@ -17,7 +17,6 @@ namespace HR_Application
         public string createDepartment(string depId, string depName, string address, string depHead)
         {
             string result;
-            Console.WriteLine(depHead);
 
             try
             {
@@ -43,10 +42,7 @@ namespace HR_Application
             
             finally
             {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
             }
 
             return result;
@@ -78,10 +74,7 @@ namespace HR_Application
 
             finally
             {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
             }
         }
 
@@ -111,7 +104,7 @@ namespace HR_Application
 
             finally
             {
-                connection.Close();
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
             }
             return result;
         }
@@ -119,6 +112,8 @@ namespace HR_Application
         public ArrayList Get_Employee_list(string depid)
         {
             ArrayList emp_list = new ArrayList();
+            OracleDataReader dr;
+
             try
             {
                 connection.Open();
@@ -132,32 +127,21 @@ namespace HR_Application
                 OracleParameter p2 = cmd.Parameters.Add("return_value", OracleDbType.RefCursor);
                 p1.Direction = ParameterDirection.ReturnValue;
 
-                OracleDataReader dr = cmd.ExecuteReader();
+                dr = cmd.ExecuteReader();
 
-                while (dr.Read())
-                {
-                    emp_list.Add(dr[1].ToString());
-                }
+                while (dr.Read()) { emp_list.Add(dr[1].ToString()); }
 
                 dr.Close();
 
-                
             }
 
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e);
-            }
+            catch (Exception e) { Console.WriteLine(e); }
 
             finally
             {
-                
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
             }
+
             return emp_list;
              
         }
