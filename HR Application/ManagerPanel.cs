@@ -23,7 +23,8 @@ namespace HR_Application
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            SelectTask selectTask = new SelectTask(dep_id);
+            selectTask.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

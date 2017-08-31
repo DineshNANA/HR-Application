@@ -75,9 +75,9 @@ namespace HR_Application
         }
 
 
-        public ArrayList GetTaskList()
+        public List<Task> GetTaskList()
         {
-            ArrayList taskList = new ArrayList();
+            List<Task> taskList = new List<Task>();
 
             try
             {
@@ -91,11 +91,18 @@ namespace HR_Application
 
                 while (dataReader.Read())
                 {
-                    taskList.Add(dataReader["Task_Id"].ToString() + " - " + dataReader["Task_Name"].ToString());
+                    Task newTask = new Task();
+                    newTask.TaskId = dataReader["Task_Id"].ToString();
+                    newTask.TaskName = dataReader["Task_Name"].ToString();
+                    // newTask.MaxEmployees = (int) dataReader["Max_Employees"];
+                    newTask.DepId = dataReader["Dep_Id"].ToString();
+                    newTask.Status = dataReader["Status"].ToString();
+                    Console.WriteLine(newTask.TaskId);
+                    taskList.Add(newTask);
                 }
 
                 dataReader.Close();
-                Console.WriteLine("Returning Task list");
+                Console.WriteLine("Returning Task list for all Departments");
             }
 
             catch (Exception e) { Console.WriteLine(e); }
@@ -132,12 +139,11 @@ namespace HR_Application
                     // newTask.MaxEmployees = (int) dataReader["Max_Employees"];
                     newTask.DepId = dataReader["Dep_Id"].ToString();
                     newTask.Status = dataReader["Status"].ToString();
-                    Console.WriteLine(newTask.TaskId);
                     depTaskList.Add(newTask);
                 }
 
                 dataReader.Close();
-                Console.WriteLine("Returning Task list");
+                Console.WriteLine("Returning Task list for a Department");
             }
 
             catch (Exception e) { Console.WriteLine(e); }
