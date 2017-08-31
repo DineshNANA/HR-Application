@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Oracle.DataAccess.Types;
 using Oracle.DataAccess.Client;
+using HR_Application.Role;
 
 
 namespace HR_Application
@@ -22,8 +23,8 @@ namespace HR_Application
             Department department = new Department();
             ArrayList deptList = department.getDepartmentList();
 
-            Role_Class role_class = new Role_Class();
-            ArrayList roleList = role_class.GetRoleDetails();
+            RoleClass roleClass = new RoleClass();
+            ArrayList roleList = roleClass.GetRoleList();
 
             foreach (var dept in deptList) { comboBox3.Items.Add(dept); }
             foreach (var role in roleList) { comboBox2.Items.Add(role); }

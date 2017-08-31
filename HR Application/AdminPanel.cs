@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Windows.Forms;
+using HR_Application.Role;
 
 namespace HR_Application
 {
@@ -103,6 +104,12 @@ namespace HR_Application
         {
             SelectDepartment selectDept = new SelectDepartment("TaskList");
             selectDept.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AddRole addRole = new AddRole();
+            addRole.Show();
         }
     }
 }

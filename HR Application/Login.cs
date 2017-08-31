@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using HR_Application.Role;
  
 namespace HR_Application
 {
@@ -20,9 +21,9 @@ namespace HR_Application
 
         void fillrolecombo()
         {
-            Role_Class role = new Role_Class();
+            RoleClass role = new RoleClass();
             ArrayList arlist = new ArrayList();
-            arlist=role.Get_Role_Details();
+            arlist=role.GetRoleList();
 
             foreach(var item in arlist){
 
@@ -40,7 +41,6 @@ namespace HR_Application
             result = emp.Employee_Login(emp_id, psswd, role);
             if (result == 1)
             {
-                MessageBox.Show("Login ok");
                 this.Hide();
 
                 if (role == "Administrator")
