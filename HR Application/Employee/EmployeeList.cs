@@ -11,6 +11,14 @@ namespace HR_Application
 {
     public partial class EmployeeList : Form
     {
+        public EmployeeList()
+        {
+            InitializeComponent();
+            Employee employee = new Employee();
+            List<Employee> empList = employee.GetEmployeeListNew();
+            dataGridView1.DataSource = empList;
+        }
+
         public EmployeeList(string depId)
         {
             InitializeComponent();

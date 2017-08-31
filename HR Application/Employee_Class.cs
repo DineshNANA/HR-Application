@@ -247,6 +247,44 @@ namespace HR_Application
         }
 
 
+        public List<Employee> GetEmployeeListNew()
+        {
+            List<Employee> empList = new List<Employee>();
+
+            try
+            {
+                conn.Open();
+
+                OracleCommand command = new OracleCommand("HR_EMPLOYEE_DETAILS", conn);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("employee_list", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                OracleDataReader objReader = command.ExecuteReader();
+
+                while (objReader.Read())
+                {
+                    Employee newEmployee = new Employee();
+                    newEmployee.Emp_id = objReader["Emp_Id"].ToString();
+                    newEmployee.Emp_name = objReader["Emp_Name"].ToString();
+                    newEmployee.Nic = objReader["NIC_No"].ToString();
+                    newEmployee.Address = objReader["Address"].ToString();
+                    newEmployee.Contact = objReader["Contact_No"].ToString();
+                    newEmployee.Dep_name = objReader["Dep_Id"].ToString();
+                    newEmployee.Email = objReader["Email"].ToString();
+                    newEmployee.Gender = objReader["Gender"].ToString();
+                    empList.Add(newEmployee);
+                }
+                Console.WriteLine("Returning list of Employee objects");
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { conn.Close(); }
+
+            return empList;
+        }
+
+
         public ArrayList Get_Profile(string emp_id)
         {
             ArrayList emp_profile = new ArrayList();
@@ -381,8 +419,6 @@ namespace HR_Application
             return emp_profile;
 
         }
-
-
 
         
     }
