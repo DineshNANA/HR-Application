@@ -211,6 +211,8 @@ namespace HR_Application
                     newEmployee.Gender = objReader["Gender"].ToString();
                     depEmpList.Add(newEmployee);
                 }
+
+                objReader.Close();
                 Console.WriteLine("Returning list of Employee objects");
             }
 

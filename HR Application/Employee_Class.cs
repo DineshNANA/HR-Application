@@ -91,7 +91,7 @@ namespace HR_Application
             this.emp_id = emp_id;
             ArrayList result = this.Get_Profile(emp_id);
             this.emp_name = result[1].ToString();
-            this.dep_id = result[6].ToString();
+            this.dep_id = result[5].ToString();
         }
 
 

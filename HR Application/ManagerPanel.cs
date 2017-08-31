@@ -13,12 +13,12 @@ namespace HR_Application
     {
         Employee me;
         string dep_id;
+
         public ManagerPanel(string emp_id, string role)
         {
             InitializeComponent();
             me = new Employee(emp_id);
             this.dep_id = me.Dep_id;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -28,7 +28,14 @@ namespace HR_Application
 
         private void button1_Click(object sender, EventArgs e)
         {
+            EmployeeList empList = new EmployeeList(dep_id);
+            empList.Show();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TaskList taskList = new TaskList(dep_id);
+            taskList.Show();
         }
     }
 }
