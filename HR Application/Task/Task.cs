@@ -18,6 +18,7 @@ namespace HR_Application
         private int maxEmployees;
         private string depId;
         private string status;
+        private int current_emp;
 
         public string TaskId
         {
@@ -31,7 +32,7 @@ namespace HR_Application
             set { this.taskName = value; }
         }
 
-        public int MaxEmployees
+        public Int32 MaxEmployees
         {
             get { return this.maxEmployees; }
             set { this.maxEmployees = value; }
@@ -99,6 +100,7 @@ namespace HR_Application
                     // newTask.MaxEmployees = (int) dataReader["Max_Employees"];
                     newTask.DepId = dataReader["Dep_Id"].ToString();
                     newTask.Status = dataReader["Status"].ToString();
+                    //newTask.current_emp = dataReader["CURR_EMP"]
                     Console.WriteLine(newTask.TaskId);
                     taskList.Add(newTask);
                 }
@@ -138,9 +140,10 @@ namespace HR_Application
                     Task newTask = new Task();
                     newTask.TaskId = dataReader["Task_Id"].ToString();
                     newTask.TaskName = dataReader["Task_Name"].ToString();
-                    // newTask.MaxEmployees = (int) dataReader["Max_Employees"];
+                    //newTask.MaxEmployees = int.Parse(dataReader["Max_Employees"].ToString());
                     newTask.DepId = dataReader["Dep_Id"].ToString();
                     newTask.Status = dataReader["Status"].ToString();
+                   
                     depTaskList.Add(newTask);
                 }
 
@@ -159,9 +162,10 @@ namespace HR_Application
         }
 
 
-        public ArrayList GetTask(string taskId)
+        public List<Task> GetTask(string taskId)
         {
-            ArrayList taskDetails = new ArrayList();
+            //ArrayList taskDetails = new ArrayList();
+            List<Task> taskDetails = new List<Task>();
             OracleDataReader dataReader;
 
             try
@@ -172,6 +176,7 @@ namespace HR_Application
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add("task_details", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
                 command.Parameters.Add("task_id", OracleDbType.Varchar2, taskId, ParameterDirection.Input);
                 dataReader = command.ExecuteReader();
 
@@ -180,9 +185,10 @@ namespace HR_Application
                     Task task = new Task();
                     task.TaskId = dataReader["Task_Id"].ToString();
                     task.TaskName = dataReader["Task_Name"].ToString();
-                    task.MaxEmployees = (int) dataReader["Max_Employees"];
+                    task.MaxEmployees = int.Parse(dataReader["Max_Employees"].ToString());
                     task.DepId = dataReader["Dep_Id"].ToString();
                     task.Status = dataReader["Status"].ToString();
+                    task.current_emp = int.Parse(dataReader["CURR_EMP"].ToString());
                     taskDetails.Add(task);
                 }
                 Console.WriteLine("Returning details of a Task");
@@ -302,6 +308,49 @@ namespace HR_Application
             
 
 
+        }
+
+        public ArrayList GetEmployListForTask(string task_id, string dep_id)
+        {
+            ArrayList employ_id_list = new ArrayList();
+            try
+            {
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_ASSIGN_TASK", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                OracleParameter p1 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
+                p1.Direction = ParameterDirection.ReturnValue;
+
+                OracleParameter p2 = cmd.Parameters.Add("task_id", OracleDbType.Varchar2);
+                cmd.Parameters["task_id"].Value = task_id;
+                p2.Direction = ParameterDirection.Input;
+
+                OracleParameter p3 = cmd.Parameters.Add("a_dep_id", OracleDbType.Varchar2);
+                cmd.Parameters["a_dep_id"].Value = dep_id;
+                p3.Direction = ParameterDirection.Input;
+
+                OracleDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    employ_id_list.Add(dataReader[0].ToString() + " - " + dataReader[1].ToString());
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
+            }
+
+
+            return employ_id_list;
         }
 
 
