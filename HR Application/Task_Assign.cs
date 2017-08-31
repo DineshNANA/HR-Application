@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Collections;
+//using Oracle.DataAccess.Client;
+//using Oracle.DataAccess.Types;
 using System.Windows.Forms;
 
 namespace HR_Application
@@ -38,6 +40,16 @@ namespace HR_Application
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (string s in checkedListBox1.CheckedItems)
+            {
+
+                
+                s.Substring(0, 6);
+            }
         }
     }
 }

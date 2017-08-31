@@ -202,7 +202,7 @@ namespace HR_Application
                 OracleDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    employ_id_list.Add(dataReader[0].ToString());
+                    employ_id_list.Add(dataReader[0].ToString()+" - "+dataReader[1].ToString());
                 }
             }
 
@@ -218,6 +218,27 @@ namespace HR_Application
 
             
             return employ_id_list;
+        }
+
+        public void Assign_Employee(string task_id, string emp_id)
+        {
+
+            connection.Open();
+
+            OracleCommand cmd = new OracleCommand("HR_ASSIGN_EMPLOYEES", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter p1 = cmd.Parameters.Add("a_task_id", OracleDbType.Varchar2);
+            cmd.Parameters["a_task_id"].Value = task_id;
+            p1.Direction = ParameterDirection.Input;
+
+            OracleParameter p2 = cmd.Parameters.Add("a_emp_id", OracleDbType.Varchar2);
+            cmd.Parameters["a_emp_id"].Value = emp_id;
+            p2.Direction = ParameterDirection.Input;
+
+            cmd.ExecuteNonQuery();
+
+
         }
 
 
