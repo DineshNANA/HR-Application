@@ -95,7 +95,7 @@ namespace HR_Application
 
         private void button16_Click(object sender, EventArgs e)
         {
-            SelectTask selectTask = new SelectTask();
+            SelectTask selectTask = new SelectTask("Edit");
             selectTask.Show();
         }
 

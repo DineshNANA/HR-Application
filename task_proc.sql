@@ -11,7 +11,7 @@ CREATE OR REPLACE FUNCTION hr_task_list
 RETURN SYS_REFCURSOR IS task_list SYS_REFCURSOR;
 BEGIN
   OPEN task_list FOR
-  SELECT task_id, task_name FROM HR_Task;
+  SELECT * FROM HR_Task;
   RETURN task_list;
 END hr_task_list;
 /
