@@ -28,7 +28,7 @@ namespace HR_Application
         {
             InitializeComponent();
             action = operation;
-            dep_id = depId;
+            this.dep_id = depId;
 
             Task task = new Task();
             List<Task> taskList = task.GetTaskList(depId);
@@ -42,14 +42,14 @@ namespace HR_Application
             if (action == "Edit")
             {
                 EditTask editTask = new EditTask(taskId);
-                editTask.Show();
                 this.Close();
+                editTask.Show();
             }
             else if (action == "Assign")
             {
                 Task_Assign taskAssign = new Task_Assign(dep_id, taskId);
-                taskAssign.Show();
                 this.Close();
+                taskAssign.Show();
             }
         }
     }

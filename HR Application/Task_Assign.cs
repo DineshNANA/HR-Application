@@ -15,13 +15,14 @@ namespace HR_Application
     public partial class Task_Assign : Form
     {
         Task tsk;
+
         public Task_Assign(string dep_id, string task_id)
         {
             InitializeComponent();
             this.getemployee();
             //checkedListBox1.Items.Add("Dinesh");
             //checkedListBox1.Items.Add("Nana");
-            
+
         }
         void getemployee()
         {
@@ -48,7 +49,7 @@ namespace HR_Application
             {
                 string emp_id =  s.Substring(0, 6);
                 tsk.Assign_Employee("TSK001", emp_id);
-               
+
             }
         }
     }
