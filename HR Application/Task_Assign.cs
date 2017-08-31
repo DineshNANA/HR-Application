@@ -15,7 +15,7 @@ namespace HR_Application
     public partial class Task_Assign : Form
     {
         Task tsk;
-        public Task_Assign()
+        public Task_Assign(string dep_id,string task_id)
         {
             InitializeComponent();
             this.getemployee();
