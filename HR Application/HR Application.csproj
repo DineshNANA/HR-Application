@@ -95,6 +95,12 @@
     <Compile Include="Employee\AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee\UnassignEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\UnassignEmployee.Designer.cs">
+      <DependentUpon>UnassignEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Task\AddTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\UnassignEmployee.resx">
+      <DependentUpon>UnassignEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerPanel.resx">
       <DependentUpon>ManagerPanel.cs</DependentUpon>

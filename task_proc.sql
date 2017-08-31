@@ -47,3 +47,22 @@ BEGIN
 END hr_task_edit;
 /
 
+
+CREATE OR REPLACE FUNCTION hr_department_task_assignment(taskId IN VARCHAR2)
+RETURN SYS_REFCURSOR IS hr_dep_task_assignment_list SYS_REFCURSOR;
+BEGIN
+OPEN hr_dep_task_assignment_list 
+FOR SELECT e.emp_id, e.emp_name FROM hr_employee e
+JOIN hr_task_assignment a ON e.emp_id = a.emp_id
+WHERE task_id = taskId;
+RETURN hr_dep_task_assignment_list;
+END hr_department_task_assignment;
+/
+
+
+CREATE OR REPLACE PROCEDURE hr_task_assignment_delete(
+taskId IN VARCHAR2, empId IN VARCHAR2) AS
+BEGIN
+  DELETE FROM HR_Task_Assignment WHERE task_id = taskId AND emp_id = empId;
+END;
+/
