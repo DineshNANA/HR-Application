@@ -15,10 +15,10 @@ namespace HR_Application
 
         private string taskId;
         private string taskName;
-        private int maxEmployees;
+        private string maxEmployees;
         private string depId;
         private string status;
-        private int current_emp;
+        private string current_emp;
 
         public string TaskId
         {
@@ -32,7 +32,7 @@ namespace HR_Application
             set { this.taskName = value; }
         }
 
-        public Int32 MaxEmployees
+        public string MaxEmployees
         {
             get { return this.maxEmployees; }
             set { this.maxEmployees = value; }
@@ -50,6 +50,12 @@ namespace HR_Application
             set { this.status = value; }
         }
 
+        public string CurrentEmployees
+        {
+            get { return this.current_emp; }
+            set { this.current_emp = value; }
+        }
+
 
         public void CreateTask(string taskName, decimal maxEmployees, string depId, string status, decimal curr_Emp)
         {
@@ -61,7 +67,7 @@ namespace HR_Application
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add("Task_Name", OracleDbType.Varchar2, taskName, ParameterDirection.Input);
-                command.Parameters.Add("Max_Employees", OracleDbType.Decimal, maxEmployees, ParameterDirection.Input);
+                command.Parameters.Add("Max_Employees", OracleDbType.Varchar2, maxEmployees, ParameterDirection.Input);
                 command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
                 command.Parameters.Add("Status", OracleDbType.Varchar2, status, ParameterDirection.Input);
                 command.Parameters.Add("curremp", OracleDbType.Varchar2, curr_Emp, ParameterDirection.Input);
@@ -140,7 +146,7 @@ namespace HR_Application
                     Task newTask = new Task();
                     newTask.TaskId = dataReader["Task_Id"].ToString();
                     newTask.TaskName = dataReader["Task_Name"].ToString();
-                    //newTask.MaxEmployees = int.Parse(dataReader["Max_Employees"].ToString());
+                    //newTask.MaxEmployees = dataReader["Max_Employees"].ToString();
                     newTask.DepId = dataReader["Dep_Id"].ToString();
                     newTask.Status = dataReader["Status"].ToString();
                    
@@ -185,10 +191,10 @@ namespace HR_Application
                     Task task = new Task();
                     task.TaskId = dataReader["Task_Id"].ToString();
                     task.TaskName = dataReader["Task_Name"].ToString();
-                    task.MaxEmployees = int.Parse(dataReader["Max_Employees"].ToString());
+                    task.MaxEmployees = dataReader["Max_Employees"].ToString();
                     task.DepId = dataReader["Dep_Id"].ToString();
                     task.Status = dataReader["Status"].ToString();
-                    task.current_emp = int.Parse(dataReader["CURR_EMP"].ToString());
+                    task.current_emp =  dataReader["CURR_EMP"].ToString();
                     taskDetails.Add(task);
                 }
                 Console.WriteLine("Returning details of a Task");
@@ -401,6 +407,38 @@ namespace HR_Application
             catch (Exception e) { Console.WriteLine(e.Message); }
 
             finally { connection.Close(); }
+        }
+
+        public void Update_Current_emp(string task_id, string curre_emp)
+        {
+            try
+            {
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("HR_UPDATE_CURRENT_EMP", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter p1 = cmd.Parameters.Add("a_task_id", OracleDbType.Varchar2);
+                cmd.Parameters["a_task_id"].Value = task_id;
+                p1.Direction = ParameterDirection.Input;
+
+                OracleParameter p2 = cmd.Parameters.Add("a_cur_emp", OracleDbType.Varchar2);
+                cmd.Parameters["a_cur_emp"].Value = curre_emp;
+                p2.Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
+            }
         }
 
     }

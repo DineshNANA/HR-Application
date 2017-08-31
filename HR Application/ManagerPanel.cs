@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace HR_Application
 {
@@ -19,6 +20,8 @@ namespace HR_Application
             InitializeComponent();
             me = new Employee(emp_id);
             this.dep_id = me.Dep_id;
+            roleValue.Text = role;
+            Load +=new EventHandler(ManagerPanel_Load);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -47,6 +50,15 @@ namespace HR_Application
             SelectTask selectTask = new SelectTask("Unassign", dep_id);
             selectTask.Show();
  
+        }
+
+        private void ManagerPanel_Load(object sender, EventArgs e)
+        {
+            ArrayList emp_data = new ArrayList();
+            emp_data = me.Get_Profile();
+            empIdValue.Text = emp_data[0].ToString();
+            empNameValue.Text = emp_data[1].ToString();
+            departmentValue.Text = emp_data[6].ToString();
         }
     }
 }

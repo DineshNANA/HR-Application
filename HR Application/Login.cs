@@ -17,6 +17,7 @@ namespace HR_Application
         {
             InitializeComponent();
             fillrolecombo();
+            textBox2.PasswordChar='*';
         }
 
         void fillrolecombo()

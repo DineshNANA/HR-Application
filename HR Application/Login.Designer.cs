@@ -73,9 +73,10 @@
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(180, 195);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
+            this.textBox2.Size = new System.Drawing.Size(197, 22);
             this.textBox2.TabIndex = 2;
             // 
             // button1

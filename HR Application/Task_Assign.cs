@@ -17,6 +17,7 @@ namespace HR_Application
         Task tsk;
         string dep_id;
         string task_id;
+        List<Task> num = new List<Task>();
         public Task_Assign(string dep_id, string task_id)
         {
             InitializeComponent();
@@ -30,9 +31,10 @@ namespace HR_Application
         void getemployee()
         {
             tsk = new Task();
-            List<Task> num = new List<Task>();
+           
             num = tsk.GetTask(task_id);
-            //label4.Text = num[0].MaxEmployees.ToString();
+            label5.Text = num[0].MaxEmployees.ToString();
+            label4.Text = num[0].CurrentEmployees.ToString();
              
             ArrayList ar = new ArrayList();
             ar = tsk.GetEmployList(task_id,dep_id);
@@ -52,13 +54,31 @@ namespace HR_Application
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (string s in checkedListBox1.CheckedItems)
-            {
-                string emp_id =  s.Substring(0, 6);
-                tsk.Assign_Employee(task_id, emp_id);
+            int maxemp = Int32.Parse(num[0].MaxEmployees.ToString());
+            int curr = Int32.Parse(num[0].CurrentEmployees.ToString());
+            int available = maxemp - curr;
+            int checkedCount = checkedListBox1.CheckedItems.Count;
+            Console.WriteLine(checkedCount);
 
+            if (checkedCount > available)
+            {
+                MessageBox.Show("You selected more than Max Employees");
             }
-            MessageBox.Show("Employees are assigned to the Task");
+
+            else {
+
+                string newcuremp = (curr + checkedCount).ToString();
+                tsk.Update_Current_emp(task_id, newcuremp);
+                foreach (string s in checkedListBox1.CheckedItems)
+                {
+                    string emp_id = s.Substring(0, 6);
+                    tsk.Assign_Employee(task_id, emp_id);
+
+                }
+                MessageBox.Show("Employees are assigned to the Task");
+                this.Hide();
+            }
+            
         }
     }
 }
