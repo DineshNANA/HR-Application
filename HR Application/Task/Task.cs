@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System.Data;
 using System.Collections;
 
@@ -49,7 +50,7 @@ namespace HR_Application
         }
 
 
-        public void CreateTask(string taskName, decimal maxEmployees, string depId, string status)
+        public void CreateTask(string taskName, decimal maxEmployees, string depId, string status, decimal curr_Emp)
         {
             try
             {
@@ -62,6 +63,7 @@ namespace HR_Application
                 command.Parameters.Add("Max_Employees", OracleDbType.Decimal, maxEmployees, ParameterDirection.Input);
                 command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
                 command.Parameters.Add("Status", OracleDbType.Varchar2, status, ParameterDirection.Input);
+                command.Parameters.Add("curremp", OracleDbType.Varchar2, curr_Emp, ParameterDirection.Input);
 
                 command.ExecuteNonQuery();
             }
