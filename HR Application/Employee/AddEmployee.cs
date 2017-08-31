@@ -33,7 +33,7 @@ namespace HR_Application
         {
 
         }
-
+        string Gender;
         private void button2_Click(object sender, EventArgs e)
         {
             string emp_name = textBox2.Text;
@@ -42,7 +42,7 @@ namespace HR_Application
             string dep_id = comboBox3.Text.Substring(0, 6);
             string pswd = "ifs";
             string email = textBox5.Text;
-            string gender = "M";
+            string gender = Gender;
             string status = "Active";
             string role_id = comboBox2.Text.Substring(0, 6);
             string address = textBox3.Text;
@@ -56,6 +56,16 @@ namespace HR_Application
         private void AddEmployee_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            Gender = "Male";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            Gender = "Female";
         }
 
     }

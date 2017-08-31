@@ -32,10 +32,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-5, -6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(713, 73);
@@ -69,6 +73,17 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(238, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Manager Panel";
+            // 
             // ManagerPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -80,6 +95,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "ManagerPanel";
             this.Text = "ManagerPanel";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -90,5 +107,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -21,6 +21,7 @@ namespace HR_Application
         private string nic;
         private string contact;
         private string address;
+        private string dep_id;
         private string dep_name;
         private string email;
         private string gender;
@@ -55,6 +56,12 @@ namespace HR_Application
             set { address = value; }
         }
 
+        public string Dep_id
+        {
+            get { return dep_id; }
+            set { dep_id = value; }
+        }
+
         public string Dep_name
         {
             get { return dep_name; }
@@ -82,6 +89,9 @@ namespace HR_Application
         {
 
             this.emp_id = emp_id;
+            ArrayList result = this.Get_Profile(emp_id);
+            this.emp_name = result[1].ToString();
+            this.dep_id = result[6].ToString();
         }
 
 
@@ -273,8 +283,8 @@ namespace HR_Application
                 emp_profile.Add(dr[3].ToString());      //address
                 emp_profile.Add(dr[4].ToString());      //contact_no
                 emp_profile.Add(dr[5].ToString());      //designation
-                emp_profile.Add(dr[6].ToString());      //depname
-                emp_profile.Add(dr[7].ToString());      //department_location
+                emp_profile.Add(dr[6].ToString());      //depid
+                emp_profile.Add(dr[7].ToString());      //dep_name
 
 
                 dr.Close();
