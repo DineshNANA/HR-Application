@@ -14,7 +14,7 @@ namespace HR_Application
     {
         OracleConnection connection = Connection.Main();
         
-        public string createDepartment(string depId, string depName, string address, string depHead)
+        public string createDepartment( string depName, string address, string depHead)
         {
             string result;
 
@@ -25,7 +25,7 @@ namespace HR_Application
                 OracleCommand command = new OracleCommand("HR_DEPARTMENT_CREATE", connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
+               
                 command.Parameters.Add("Dep_Name", OracleDbType.Varchar2, depName, ParameterDirection.Input);
                 command.Parameters.Add("Address", OracleDbType.Varchar2, address, ParameterDirection.Input);
                 command.Parameters.Add("Dep_Head", OracleDbType.Varchar2, depHead, ParameterDirection.Input);

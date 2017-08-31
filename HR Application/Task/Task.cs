@@ -48,8 +48,7 @@ namespace HR_Application
             set { this.status = value; }
         }
 
-
-        public void CreateTask(string taskId, string taskName, decimal maxEmployees, string depId, string status)
+        public void CreateTask(string taskName, decimal maxEmployees, string depId, string status)
         {
             try
             {
@@ -58,13 +57,14 @@ namespace HR_Application
                 OracleCommand command = new OracleCommand("HR_TASK_CREATE", connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add("Task_Id", OracleDbType.Varchar2, taskId, ParameterDirection.Input);
+
                 command.Parameters.Add("Task_Name", OracleDbType.Varchar2, taskName, ParameterDirection.Input);
                 command.Parameters.Add("Max_Employees", OracleDbType.Decimal, maxEmployees, ParameterDirection.Input);
                 command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
                 command.Parameters.Add("Status", OracleDbType.Varchar2, status, ParameterDirection.Input);
 
                 command.ExecuteNonQuery();
+
             }
 
             catch (Exception e) { Console.WriteLine(e.Message); }
@@ -113,7 +113,7 @@ namespace HR_Application
             return taskList;
         }
 
-        
+
         public ArrayList GetTask(string taskId)
         {
             ArrayList taskDetails = new ArrayList();

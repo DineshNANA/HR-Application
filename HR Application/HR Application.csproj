@@ -71,6 +71,12 @@
     <Compile Include="Department\EditDepartment.Designer.cs">
       <DependentUpon>EditDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Profile_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Profile_details.Designer.cs">
+      <DependentUpon>Edit_Profile_details.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeePanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,12 +88,6 @@
     </Compile>
     <Compile Include="Department\EmployeeList.Designer.cs">
       <DependentUpon>EmployeeList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeProfile.Designer.cs">
-      <DependentUpon>EmployeeProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee\AddEmployee.cs">
       <SubType>Form</SubType>
@@ -162,8 +162,8 @@
     <EmbeddedResource Include="Department\EmployeeList.resx">
       <DependentUpon>EmployeeList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeProfile.resx">
-      <DependentUpon>EmployeeProfile.cs</DependentUpon>
+    <EmbeddedResource Include="Edit_Profile_details.resx">
+      <DependentUpon>Edit_Profile_details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>

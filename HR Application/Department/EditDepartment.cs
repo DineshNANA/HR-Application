@@ -49,8 +49,7 @@ namespace HR_Application
             {
                 this.Text = "Edit Department";
                 button2.Text = "Save Changes";
-                textBox1.Text = depId;
-                textBox1.Enabled = false;
+                 
             }
 
             ArrayList empList = emp.GetEmployeeList();
@@ -62,7 +61,7 @@ namespace HR_Application
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string depId = textBox1.Text;
+             
             string depName = textBox2.Text;
             string address = textBox3.Text;
             string depHead;
@@ -73,7 +72,7 @@ namespace HR_Application
                 depHead = comboBox1.Text.Substring(0, 6);
 
             dept = new Department();
-            string result = dept.createDepartment(depId, depName, address, depHead);
+            string result = dept.createDepartment(depName, address, depHead);
 
             if (result == "Success")
             {
@@ -89,10 +88,15 @@ namespace HR_Application
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            
             textBox2.Text = "";
             textBox3.Text = "";
             comboBox1.Text = "Not assigned";
+        }
+
+        private void EditDepartment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

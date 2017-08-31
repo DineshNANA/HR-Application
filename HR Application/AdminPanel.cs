@@ -35,7 +35,7 @@ namespace HR_Application
             emp_data = me.Get_Profile();
             label6.Text = emp_data[0].ToString();
             label7.Text = emp_data[1].ToString();
-            label8.Text = emp_data[6].ToString();
+            label8.Text = emp_data[5].ToString();
            
         }
 
@@ -78,8 +78,8 @@ namespace HR_Application
 
         private void button5_Click(object sender, EventArgs e)
         {
-            EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
-            empprofile.Show();
+            //EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
+            //empprofile.Show();
         }
 
         private void button14_Click(object sender, EventArgs e)

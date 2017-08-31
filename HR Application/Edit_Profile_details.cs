@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace HR_Application
 {
-    public partial class ManagerPanel : Form
+    public partial class Edit_Profile_details : Form
     {
-        public ManagerPanel()
+        public Edit_Profile_details()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
