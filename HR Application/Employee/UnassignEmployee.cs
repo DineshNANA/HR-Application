@@ -14,6 +14,7 @@ namespace HR_Application
     {
         string taskId;
         Task task;
+        List<Task> num = new List<Task>();
 
         public UnassignEmployee(string taskId)
         {
@@ -27,15 +28,22 @@ namespace HR_Application
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+
+            num = task.GetTask(taskId);
+            int curr = Int32.Parse(num[0].CurrentEmployees.ToString());
+            int checkedCount = checkedListBox1.CheckedItems.Count;
+            string newcuremp = (curr - checkedCount).ToString();
+            task.Update_Current_emp(taskId, newcuremp);
             foreach (string employee in checkedListBox1.CheckedItems)
             {
                 task.UnassignTask(taskId, employee.Substring(0, 6));
             }
 
-            foreach (string employee in checkedListBox1.CheckedItems)
-            {
-                checkedListBox1.Items.Remove(employee);
-            }
+            //foreach (string employee in checkedListBox1.CheckedItems)
+            //{
+            //    checkedListBox1.Items.Remove(employee);
+            //}
 
         }
     }
