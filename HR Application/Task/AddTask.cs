@@ -26,14 +26,15 @@ namespace HR_Application
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string taskId = textBox1.Text;
+             
             string taskName = textBox2.Text;
             decimal maxEmployees = numericUpDown1.Value;
             string depId = comboBox1.Text.Substring(0, 6);
             string status = "Active";
 
             Task task = new Task();
-            task.CreateTask(taskId, taskName, maxEmployees, depId, status);
+            task.CreateTask(taskName, maxEmployees, depId, status);
+            MessageBox.Show("Successfully Created the Task");
         }
     }
 }
