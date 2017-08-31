@@ -38,5 +38,11 @@ namespace HR_Application
             TaskList taskList = new TaskList(dep_id);
             taskList.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SelectTask selectTask = new SelectTask("Unassign", dep_id);
+            selectTask.Show();
+        }
     }
 }

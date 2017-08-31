@@ -303,6 +303,54 @@ namespace HR_Application
         }
 
 
+        public ArrayList GetAssignedEmployees(string taskId)
+        {
+            ArrayList empList = new ArrayList();
+
+            try
+            {
+                connection.Open();
+
+                OracleCommand command = new OracleCommand("hr_department_task_assignment", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("hr_dep_task_assignment_list", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                command.Parameters.Add("task_id", OracleDbType.Varchar2, taskId, ParameterDirection.Input);
+                OracleDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    empList.Add(dataReader["Emp_Id"].ToString() + " - " + dataReader["Emp_Name"].ToString());
+                }
+                Console.WriteLine("Returning list Task assigned Employees");
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { connection.Close(); }
+
+            return empList;
+        }
+
+
+        public void UnassignTask(string taskId, string empId)
+        {
+            try
+            {
+                connection.Open();
+
+                OracleCommand command = new OracleCommand("hr_task_assignment_delete", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("task_id", OracleDbType.Varchar2, taskId, ParameterDirection.Input);
+                command.Parameters.Add("emp_id", OracleDbType.Varchar2, empId, ParameterDirection.Input);
+                command.ExecuteNonQuery();
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { connection.Close(); }
+        }
 
     }
 }

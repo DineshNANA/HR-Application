@@ -51,6 +51,12 @@ namespace HR_Application
                 this.Close();
                 taskAssign.Show();
             }
+            else if (action == "Unassign")
+            {
+                UnassignEmployee unassignEmp = new UnassignEmployee(taskId);
+                this.Close();
+                unassignEmp.Show();
+            }
         }
     }
 }
