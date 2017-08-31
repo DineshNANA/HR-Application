@@ -78,8 +78,8 @@ namespace HR_Application
 
         private void button5_Click(object sender, EventArgs e)
         {
-            EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
-            empprofile.Show();
+            //EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
+            //empprofile.Show();
         }
 
         private void button14_Click(object sender, EventArgs e)
