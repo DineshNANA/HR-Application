@@ -35,7 +35,7 @@ namespace HR_Application
             emp_data = me.Get_Profile();
             label6.Text = emp_data[0].ToString();
             label7.Text = emp_data[1].ToString();
-            label8.Text = emp_data[6].ToString();
+            label8.Text = emp_data[5].ToString();
            
         }
 
