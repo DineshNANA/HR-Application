@@ -101,6 +101,12 @@
     <Compile Include="Employee\UnassignEmployee.Designer.cs">
       <DependentUpon>UnassignEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Role\AddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Role\AddRole.Designer.cs">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Task\AddTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,7 +148,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role_Class.cs" />
+    <Compile Include="Role\RoleClass.cs" />
     <Compile Include="Task\EditTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerPanel.resx">
       <DependentUpon>ManagerPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Role\AddRole.resx">
+      <DependentUpon>AddRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Task\AddTask.resx">
       <DependentUpon>AddTask.cs</DependentUpon>
