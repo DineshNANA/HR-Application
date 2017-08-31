@@ -111,5 +111,11 @@ namespace HR_Application
             AddRole addRole = new AddRole();
             addRole.Show();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            DeleteRole deleteRole = new DeleteRole();
+            deleteRole.Show();
+        }
     }
 }

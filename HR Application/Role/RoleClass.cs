@@ -62,6 +62,54 @@ namespace HR_Application.Role
             return roleList;
         }
 
+
+        public ArrayList GetRoleListID()
+        {
+            ArrayList roleList = new ArrayList();
+
+            try
+            {
+                connection.Open();
+                OracleCommand command = new OracleCommand("HR_GET_ROLE_DETAILS", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("return_val", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                OracleDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    roleList.Add(dataReader["Role_Id"].ToString() + " - " + dataReader["Role_Name"].ToString()); 
+                }
+                dataReader.Close();
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
+            }
+
+            return roleList;
+        }
+
+
+        public void DeleteRole(string roleId)
+        {
+            try
+            {
+                connection.Open();
+                OracleCommand command = new OracleCommand("HR_ROLE_DELETE", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("role_id", OracleDbType.Varchar2, roleId, ParameterDirection.Input);
+                command.ExecuteNonQuery();
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { if (connection.State == ConnectionState.Open) { connection.Close(); } }
+        }
     }
 
 }
