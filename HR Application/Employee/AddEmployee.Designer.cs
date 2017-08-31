@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,12 +42,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.RoleSelect = new System.Windows.Forms.ComboBox();
+            this.DepartmentSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -123,7 +126,9 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(241, 21);
-            this.textBox2.TabIndex = 9;
+            this.textBox2.TabIndex = 1;
+            this.textBox2.CausesValidationChanged += new System.EventHandler(this.button2_Click);
+            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
             // textBox4
             // 
@@ -132,7 +137,8 @@
             this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(241, 21);
-            this.textBox4.TabIndex = 11;
+            this.textBox4.TabIndex = 4;
+            this.textBox4.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
             // 
             // textBox5
             // 
@@ -141,7 +147,8 @@
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(241, 21);
-            this.textBox5.TabIndex = 12;
+            this.textBox5.TabIndex = 5;
+            this.textBox5.Validating += new System.ComponentModel.CancelEventHandler(this.textBox5_Validating);
             // 
             // button1
             // 
@@ -152,7 +159,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 38);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -165,7 +172,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 38);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 10;
             this.button2.Text = "Add New";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -178,7 +185,7 @@
             this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(56, 20);
-            this.radioButton1.TabIndex = 18;
+            this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Male";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -192,31 +199,33 @@
             this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(72, 20);
-            this.radioButton2.TabIndex = 19;
+            this.radioButton2.TabIndex = 3;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Female";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // comboBox2
+            // RoleSelect
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(307, 347);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(241, 23);
-            this.comboBox2.TabIndex = 21;
+            this.RoleSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoleSelect.FormattingEnabled = true;
+            this.RoleSelect.Location = new System.Drawing.Point(307, 347);
+            this.RoleSelect.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.RoleSelect.Name = "RoleSelect";
+            this.RoleSelect.Size = new System.Drawing.Size(241, 23);
+            this.RoleSelect.TabIndex = 8;
+            this.RoleSelect.Validating += new System.ComponentModel.CancelEventHandler(this.RoleSelectValidating);
             // 
-            // comboBox3
+            // DepartmentSelect
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(307, 410);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(241, 23);
-            this.comboBox3.TabIndex = 22;
+            this.DepartmentSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DepartmentSelect.FormattingEnabled = true;
+            this.DepartmentSelect.Location = new System.Drawing.Point(307, 410);
+            this.DepartmentSelect.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DepartmentSelect.Name = "DepartmentSelect";
+            this.DepartmentSelect.Size = new System.Drawing.Size(241, 23);
+            this.DepartmentSelect.TabIndex = 9;
+            this.DepartmentSelect.Validating += new System.ComponentModel.CancelEventHandler(this.DepartmentSelect_Validating);
             // 
             // label1
             // 
@@ -236,7 +245,8 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(241, 21);
-            this.textBox1.TabIndex = 24;
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
             // 
             // textBox3
             // 
@@ -245,7 +255,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(241, 21);
-            this.textBox3.TabIndex = 25;
+            this.textBox3.TabIndex = 6;
             // 
             // label5
             // 
@@ -258,6 +268,10 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "Address";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -268,8 +282,8 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.DepartmentSelect);
+            this.Controls.Add(this.RoleSelect);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button2);
@@ -289,6 +303,7 @@
             this.Name = "AddEmployee";
             this.Text = "Register Employee";
             this.Load += new System.EventHandler(this.AddEmployee_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,12 +324,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox RoleSelect;
+        private System.Windows.Forms.ComboBox DepartmentSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
          
 
 

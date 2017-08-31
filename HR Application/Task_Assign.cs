@@ -15,10 +15,13 @@ namespace HR_Application
     public partial class Task_Assign : Form
     {
         Task tsk;
-
+        string dep_id;
+        string task_id;
         public Task_Assign(string dep_id, string task_id)
         {
             InitializeComponent();
+            this.dep_id = dep_id;
+            this.task_id = task_id;
             this.getemployee();
             //checkedListBox1.Items.Add("Dinesh");
             //checkedListBox1.Items.Add("Nana");
@@ -27,8 +30,12 @@ namespace HR_Application
         void getemployee()
         {
             tsk = new Task();
+            List<Task> num = new List<Task>();
+            num = tsk.GetTask(task_id);
+            //label4.Text = num[0].MaxEmployees.ToString();
+             
             ArrayList ar = new ArrayList();
-            ar = tsk.GetEmployList("TSK001","DEP001");
+            ar = tsk.GetEmployList(task_id,dep_id);
 
             foreach (var item in ar)
             {
@@ -48,9 +55,10 @@ namespace HR_Application
             foreach (string s in checkedListBox1.CheckedItems)
             {
                 string emp_id =  s.Substring(0, 6);
-                tsk.Assign_Employee("TSK001", emp_id);
+                tsk.Assign_Employee(task_id, emp_id);
 
             }
+            MessageBox.Show("Employees are assigned to the Task");
         }
     }
 }
