@@ -407,9 +407,8 @@ namespace HR_Application
                 emp_profile.Add(dr[3].ToString());      //address
                 emp_profile.Add(dr[4].ToString());      //contact_no
                 emp_profile.Add(dr[5].ToString());      //designation
-                emp_profile.Add(dr[6].ToString());      //depname
-                emp_profile.Add(dr[7].ToString());      //department_location
-
+                emp_profile.Add(dr[6].ToString());      //depid
+                emp_profile.Add(dr[7].ToString());      //dep_name
 
                 dr.Close();
             }

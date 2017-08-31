@@ -45,12 +45,12 @@ namespace HR_Application
 
                 if (role == "Administrator")
                 {
-                    AdminPanel adminPanel = new AdminPanel(emp_id);
+                    AdminPanel adminPanel = new AdminPanel(emp_id,role);
                     adminPanel.Show();
                 }
                 else if(role == "Manager")
                 {
-                    ManagerPanel managePanel = new ManagerPanel();
+                    ManagerPanel managePanel = new ManagerPanel(emp_id,role);
                     managePanel.Show();
                 }
                 else if (role == "User")

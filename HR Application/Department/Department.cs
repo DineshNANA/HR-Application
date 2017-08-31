@@ -13,6 +13,8 @@ namespace HR_Application
     class Department
     {
         OracleConnection connection = Connection.Main();
+
+        
         
         public string createDepartment( string depName, string address, string depHead)
         {

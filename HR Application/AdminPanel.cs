@@ -20,13 +20,13 @@ namespace HR_Application
             InitializeComponent();
         }
 
-        public AdminPanel(string empId)
+        public AdminPanel(string empId,string role)
         {
             InitializeComponent();
             this.emp_id = empId;
             me = new Employee(empId);
             Load +=new EventHandler(AdminPanel_Load);
-            label10.Text = "Administrator";
+            label10.Text = role;
         }
 
         private void AdminPanel_Load(object sender, EventArgs e)
