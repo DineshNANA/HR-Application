@@ -46,9 +46,9 @@ namespace HR_Application
         {
             foreach (string s in checkedListBox1.CheckedItems)
             {
-
-                
-                s.Substring(0, 6);
+                string emp_id =  s.Substring(0, 6);
+                tsk.Assign_Employee("TSK001", emp_id);
+               
             }
         }
     }
