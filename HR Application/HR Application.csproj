@@ -162,6 +162,12 @@
     <Compile Include="ManagerPanel.Designer.cs">
       <DependentUpon>ManagerPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Task_Assign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Task_Assign.Designer.cs">
+      <DependentUpon>Task_Assign.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Department\EditDepartment.resx">
       <DependentUpon>EditDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Task\SelectTask.resx">
       <DependentUpon>SelectTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Task_Assign.resx">
+      <DependentUpon>Task_Assign.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

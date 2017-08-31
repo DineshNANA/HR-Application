@@ -15,7 +15,7 @@ namespace HR_Application
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Task_Assign());
             //Login  fLogin = new Login ();
             //if (fLogin.ShowDialog() == DialogResult.OK)
             //{
