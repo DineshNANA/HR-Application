@@ -17,6 +17,16 @@ END hr_task_list;
 /
 
 
+CREATE OR REPLACE FUNCTION hr_department_task_list(depId IN VARCHAR2)
+RETURN SYS_REFCURSOR IS department_task_list SYS_REFCURSOR;
+BEGIN
+  OPEN department_task_list FOR
+  SELECT * FROM HR_Task
+  WHERE dep_id = depId;
+  RETURN department_task_list;
+END hr_department_task_list;
+
+
 CREATE OR REPLACE FUNCTION hr_task_get (taskId IN VARCHAR2)
 RETURN SYS_REFCURSOR IS task_details SYS_REFCURSOR;
 BEGIN

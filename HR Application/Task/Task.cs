@@ -48,6 +48,7 @@ namespace HR_Application
             set { this.status = value; }
         }
 
+
         public void CreateTask(string taskName, decimal maxEmployees, string depId, string status)
         {
             try
@@ -57,14 +58,12 @@ namespace HR_Application
                 OracleCommand command = new OracleCommand("HR_TASK_CREATE", connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-
                 command.Parameters.Add("Task_Name", OracleDbType.Varchar2, taskName, ParameterDirection.Input);
                 command.Parameters.Add("Max_Employees", OracleDbType.Decimal, maxEmployees, ParameterDirection.Input);
                 command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
                 command.Parameters.Add("Status", OracleDbType.Varchar2, status, ParameterDirection.Input);
 
                 command.ExecuteNonQuery();
-
             }
 
             catch (Exception e) { Console.WriteLine(e.Message); }
@@ -88,7 +87,6 @@ namespace HR_Application
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add("task_list", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
-                Console.WriteLine("I'm here");
                 OracleDataReader dataReader = command.ExecuteReader();
 
                 while (dataReader.Read())
@@ -100,10 +98,7 @@ namespace HR_Application
                 Console.WriteLine("Returning Task list");
             }
 
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            catch (Exception e) { Console.WriteLine(e); }
 
             finally
             {
@@ -111,6 +106,48 @@ namespace HR_Application
             }
 
             return taskList;
+        }
+
+
+        public List<Task> GetTaskList(string depId)
+        {
+            List<Task> depTaskList = new List<Task>();
+
+            try
+            {
+                connection.Open();
+
+                OracleCommand command = new OracleCommand("HR_DEPARTMENT_TASK_LIST", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("department_task_list", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                command.Parameters.Add("Dep_Id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
+                OracleDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Task newTask = new Task();
+                    newTask.TaskId = dataReader["Task_Id"].ToString();
+                    newTask.TaskName = dataReader["Task_Name"].ToString();
+                    // newTask.MaxEmployees = (int) dataReader["Max_Employees"];
+                    newTask.DepId = dataReader["Dep_Id"].ToString();
+                    newTask.Status = dataReader["Status"].ToString();
+                    Console.WriteLine(newTask.TaskId);
+                    depTaskList.Add(newTask);
+                }
+
+                dataReader.Close();
+                Console.WriteLine("Returning Task list");
+            }
+
+            catch (Exception e) { Console.WriteLine(e); }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
+            }
+
+            return depTaskList;
         }
 
 
@@ -132,13 +169,13 @@ namespace HR_Application
 
                 while (dataReader.Read())
                 {
-                    Task newTask = new Task();
-                    newTask.TaskId = dataReader["Task_Id"].ToString();
-                    newTask.TaskName = dataReader["Task_Name"].ToString();
-                    newTask.MaxEmployees = (int) dataReader["Max_Employees"];
-                    newTask.DepId = dataReader["Dep_Id"].ToString();
-                    newTask.Status = dataReader["Status"].ToString();
-                    taskDetails.Add(newTask);
+                    Task task = new Task();
+                    task.TaskId = dataReader["Task_Id"].ToString();
+                    task.TaskName = dataReader["Task_Name"].ToString();
+                    task.MaxEmployees = (int) dataReader["Max_Employees"];
+                    task.DepId = dataReader["Dep_Id"].ToString();
+                    task.Status = dataReader["Status"].ToString();
+                    taskDetails.Add(task);
                 }
                 Console.WriteLine("Returning details of a Task");
             }
@@ -176,6 +213,7 @@ namespace HR_Application
                 if (connection.State == ConnectionState.Open) { connection.Close(); }
             }
         }
+
 
         public ArrayList GetEmployList(string task_id,string dep_id)
         {
@@ -216,9 +254,10 @@ namespace HR_Application
                 if (connection.State == ConnectionState.Open) { connection.Close(); }
             }
 
-            
+
             return employ_id_list;
         }
+
 
         public void Assign_Employee(string task_id, string emp_id)
         {
@@ -240,6 +279,7 @@ namespace HR_Application
 
 
         }
+
 
 
     }
