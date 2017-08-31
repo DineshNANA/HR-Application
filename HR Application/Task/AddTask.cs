@@ -29,9 +29,10 @@ namespace HR_Application
             decimal maxEmployees = numericUpDown1.Value;
             string depId = comboBox1.Text.Substring(0, 6);
             string status = comboBox2.Text;
+            decimal curr_emp = 0;
 
             Task task = new Task();
-            task.CreateTask(taskName, maxEmployees, depId, status);
+            task.CreateTask(taskName, maxEmployees, depId, status,curr_emp);
             MessageBox.Show("Successfully Created the Task");
         }
     }
