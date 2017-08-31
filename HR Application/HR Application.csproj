@@ -107,6 +107,12 @@
     <Compile Include="Role\AddRole.Designer.cs">
       <DependentUpon>AddRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Role\DeleteRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Role\DeleteRole.Designer.cs">
+      <DependentUpon>DeleteRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Task\AddTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,12 +140,6 @@
     </Compile>
     <Compile Include="Department\Department.cs" />
     <Compile Include="Employee_Class.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +201,9 @@
     <EmbeddedResource Include="Role\AddRole.resx">
       <DependentUpon>AddRole.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Role\DeleteRole.resx">
+      <DependentUpon>DeleteRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Task\AddTask.resx">
       <DependentUpon>AddTask.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,9 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Department\SelectDepartment.resx">
       <DependentUpon>SelectDepartment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -69,14 +69,14 @@
             this.textBox1.Location = new System.Drawing.Point(180, 152);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(180, 195);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBox2.TabIndex = 2;
             // 
             // button1
             // 
@@ -85,7 +85,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(222, 286);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 28);
+            this.button1.Size = new System.Drawing.Size(115, 33);
             this.button1.TabIndex = 4;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
@@ -97,7 +97,7 @@
             this.comboBox1.Location = new System.Drawing.Point(180, 235);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(197, 21);
-            this.comboBox1.TabIndex = 5;
+            this.comboBox1.TabIndex = 3;
             // 
             // panel1
             // 
