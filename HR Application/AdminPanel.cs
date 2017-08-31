@@ -87,5 +87,16 @@ namespace HR_Application
             AddTask addTask = new AddTask();
             addTask.Show();
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            SelectTask selectTask = new SelectTask();
+            selectTask.Show();
+        }
     }
 }
