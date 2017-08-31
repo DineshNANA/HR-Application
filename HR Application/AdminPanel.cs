@@ -78,8 +78,8 @@ namespace HR_Application
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //EmployeeProfile empprofile = new EmployeeProfile(this.emp_id);
-            //empprofile.Show();
+            EmployeeList empList = new EmployeeList();
+            empList.Show();
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -97,6 +97,12 @@ namespace HR_Application
         {
             SelectTask selectTask = new SelectTask();
             selectTask.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            SelectDepartment selectDept = new SelectDepartment("TaskList");
+            selectDept.Show();
         }
     }
 }

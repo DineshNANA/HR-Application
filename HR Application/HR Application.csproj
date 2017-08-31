@@ -83,10 +83,10 @@
     <Compile Include="EmployeePanel.Designer.cs">
       <DependentUpon>EmployeePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Department\EmployeeList.cs">
+    <Compile Include="Employee\EmployeeList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Department\EmployeeList.Designer.cs">
+    <Compile Include="Employee\EmployeeList.Designer.cs">
       <DependentUpon>EmployeeList.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee\AddEmployee.cs">
@@ -143,6 +143,12 @@
     <Compile Include="Task\EditTask.Designer.cs">
       <DependentUpon>EditTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Task\TaskList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Task\TaskList.Designer.cs">
+      <DependentUpon>TaskList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Task\SelectTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,7 +165,7 @@
     <EmbeddedResource Include="Department\EditDepartment.resx">
       <DependentUpon>EditDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Department\EmployeeList.resx">
+    <EmbeddedResource Include="Employee\EmployeeList.resx">
       <DependentUpon>EmployeeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Profile_details.resx">
@@ -197,6 +203,9 @@
     </Compile>
     <EmbeddedResource Include="Task\EditTask.resx">
       <DependentUpon>EditTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Task\TaskList.resx">
+      <DependentUpon>TaskList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Task\SelectTask.resx">
       <DependentUpon>SelectTask.cs</DependentUpon>

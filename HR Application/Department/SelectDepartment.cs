@@ -43,6 +43,11 @@ namespace HR_Application
                 this.Text = "Select Department";
                 button1.Text = "Select";
             }
+            else if (action == "TaskList")
+            {
+                this.Text = "Select Department";
+                button1.Text = "Select";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,6 +77,12 @@ namespace HR_Application
             {
                 EmployeeList empList = new EmployeeList(depId);
                 empList.Show();
+                this.Close();
+            }
+            else if (action == "TaskList")
+            {
+                TaskList taskList = new TaskList(depId);
+                taskList.Show();
                 this.Close();
             }
 
