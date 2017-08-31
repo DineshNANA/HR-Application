@@ -177,12 +177,47 @@ namespace HR_Application
             }
         }
 
-        public ArrayList GetEmployList(string task_id)
+        public ArrayList GetEmployList(string task_id,string dep_id)
         {
+            ArrayList employ_id_list = new ArrayList();
+            try
+            {
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("HR_GET_EMPLOYEE_ASSIGN_TASK", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
 
-            ArrayList employ_list = new ArrayList();
-            return employ_list;
+                OracleParameter p1 = cmd.Parameters.Add("return_val", OracleDbType.RefCursor);
+                p1.Direction = ParameterDirection.ReturnValue;
+
+                OracleParameter p2 = cmd.Parameters.Add("task_id", OracleDbType.Varchar2);
+                cmd.Parameters["task_id"].Value = task_id;
+                p2.Direction = ParameterDirection.Input;
+
+                OracleParameter p3 = cmd.Parameters.Add("a_dep_id", OracleDbType.Varchar2);
+                cmd.Parameters["a_dep_id"].Value = dep_id;
+                p3.Direction = ParameterDirection.Input;
+
+                OracleDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    employ_id_list.Add(dataReader[0].ToString());
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
+            }
+
+            
+            return employ_id_list;
         }
 
 
