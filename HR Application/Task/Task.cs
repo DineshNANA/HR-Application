@@ -261,21 +261,37 @@ namespace HR_Application
 
         public void Assign_Employee(string task_id, string emp_id)
         {
+            try
+            {
+                connection.Open();
 
-            connection.Open();
+                OracleCommand cmd = new OracleCommand("HR_ASSIGN_EMPLOYEES", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            OracleCommand cmd = new OracleCommand("HR_ASSIGN_EMPLOYEES", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                OracleParameter p1 = cmd.Parameters.Add("a_task_id", OracleDbType.Varchar2);
+                cmd.Parameters["a_task_id"].Value = task_id;
+                p1.Direction = ParameterDirection.Input;
 
-            OracleParameter p1 = cmd.Parameters.Add("a_task_id", OracleDbType.Varchar2);
-            cmd.Parameters["a_task_id"].Value = task_id;
-            p1.Direction = ParameterDirection.Input;
+                OracleParameter p2 = cmd.Parameters.Add("a_emp_id", OracleDbType.Varchar2);
+                cmd.Parameters["a_emp_id"].Value = emp_id;
+                p2.Direction = ParameterDirection.Input;
 
-            OracleParameter p2 = cmd.Parameters.Add("a_emp_id", OracleDbType.Varchar2);
-            cmd.Parameters["a_emp_id"].Value = emp_id;
-            p2.Direction = ParameterDirection.Input;
+                cmd.ExecuteNonQuery();
 
-            cmd.ExecuteNonQuery();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            finally
+            {
+                if (connection.State == ConnectionState.Open) { connection.Close(); }
+            }
+
+            
+            
 
 
         }
