@@ -28,8 +28,6 @@ namespace HR_Application
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             num = task.GetTask(taskId);
             int curr = Int32.Parse(num[0].CurrentEmployees.ToString());
             int checkedCount = checkedListBox1.CheckedItems.Count;
@@ -39,6 +37,9 @@ namespace HR_Application
             {
                 task.UnassignTask(taskId, employee.Substring(0, 6));
             }
+
+            MessageBox.Show("Employees successfully unassigned");
+            this.Close();
 
             //foreach (string employee in checkedListBox1.CheckedItems)
             //{

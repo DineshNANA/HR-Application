@@ -66,5 +66,12 @@ namespace HR_Application
             AddTask addTask = new AddTask();
             addTask.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Dispose();
+        }
     }
 }

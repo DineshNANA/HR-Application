@@ -80,14 +80,14 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(257, 100);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
+            this.textBox2.Size = new System.Drawing.Size(202, 20);
             this.textBox2.TabIndex = 5;
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(257, 272);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(182, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(202, 20);
             this.numericUpDown1.TabIndex = 6;
             // 
             // comboBox1
@@ -95,7 +95,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(257, 315);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 21);
+            this.comboBox1.Size = new System.Drawing.Size(202, 21);
             this.comboBox1.TabIndex = 7;
             // 
             // label5
@@ -113,7 +113,7 @@
             this.textBox3.Location = new System.Drawing.Point(257, 146);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 100);
+            this.textBox3.Size = new System.Drawing.Size(202, 100);
             this.textBox3.TabIndex = 9;
             // 
             // button1
@@ -121,7 +121,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(257, 391);
+            this.button1.Location = new System.Drawing.Point(257, 415);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 33);
             this.button1.TabIndex = 10;
@@ -133,7 +133,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(364, 391);
+            this.button2.Location = new System.Drawing.Point(384, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 33);
             this.button2.TabIndex = 11;
@@ -149,18 +149,18 @@
             "Archieved",
             "Cancelled",
             "Completed"});
-            this.comboBox2.Location = new System.Drawing.Point(242, 342);
+            this.comboBox2.Location = new System.Drawing.Point(257, 357);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(182, 21);
+            this.comboBox2.Size = new System.Drawing.Size(202, 21);
             this.comboBox2.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(53, 346);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(53, 358);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.Size = new System.Drawing.Size(51, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "Status";
             // 
@@ -189,7 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(543, 453);
+            this.ClientSize = new System.Drawing.Size(543, 482);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);

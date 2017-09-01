@@ -34,6 +34,8 @@ namespace HR_Application
             depHead = comboBox1.Text;
 
             department.editDetails(depId, depName, address, depHead);
+            MessageBox.Show("Department details successfully updated");
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

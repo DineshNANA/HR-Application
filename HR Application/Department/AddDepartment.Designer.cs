@@ -144,14 +144,15 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(171, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 24);
+            this.label5.Size = new System.Drawing.Size(161, 24);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Edit Department";
+            this.label5.Text = "Add Department";
             // 
             // AddDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(498, 277);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);

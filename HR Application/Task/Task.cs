@@ -103,10 +103,10 @@ namespace HR_Application
                     Task newTask = new Task();
                     newTask.TaskId = dataReader["Task_Id"].ToString();
                     newTask.TaskName = dataReader["Task_Name"].ToString();
-                    // newTask.MaxEmployees = (int) dataReader["Max_Employees"];
+                    newTask.MaxEmployees = dataReader["Max_Employees"].ToString();
                     newTask.DepId = dataReader["Dep_Id"].ToString();
                     newTask.Status = dataReader["Status"].ToString();
-                    //newTask.current_emp = dataReader["CURR_EMP"]
+                    newTask.current_emp = dataReader["CURR_EMP"].ToString();
                     Console.WriteLine(newTask.TaskId);
                     taskList.Add(newTask);
                 }

@@ -45,6 +45,7 @@
             this.roleValue = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button14 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +54,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-5, -6);
+            this.panel1.Location = new System.Drawing.Point(-6, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(577, 73);
+            this.panel1.Size = new System.Drawing.Size(735, 73);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -72,24 +73,24 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(29, 130);
+            this.button1.Location = new System.Drawing.Point(23, 95);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 83);
+            this.button1.Size = new System.Drawing.Size(180, 68);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Employee LIst";
+            this.button1.Text = "Employee List";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(29, 263);
+            this.button2.Location = new System.Drawing.Point(231, 95);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 83);
+            this.button2.Size = new System.Drawing.Size(180, 68);
             this.button2.TabIndex = 2;
             this.button2.Text = "Task List";
             this.button2.UseVisualStyleBackColor = false;
@@ -98,11 +99,11 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(162, 130);
+            this.button3.Location = new System.Drawing.Point(231, 180);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 83);
+            this.button3.Size = new System.Drawing.Size(180, 68);
             this.button3.TabIndex = 3;
             this.button3.Text = "Assign Employees";
             this.button3.UseVisualStyleBackColor = false;
@@ -111,11 +112,11 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(162, 263);
+            this.button4.Location = new System.Drawing.Point(23, 275);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 83);
+            this.button4.Size = new System.Drawing.Size(180, 68);
             this.button4.TabIndex = 4;
             this.button4.Text = "Unassign Employees";
             this.button4.UseVisualStyleBackColor = false;
@@ -125,7 +126,7 @@
             // 
             this.empId.AutoSize = true;
             this.empId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empId.Location = new System.Drawing.Point(329, 210);
+            this.empId.Location = new System.Drawing.Point(460, 232);
             this.empId.Name = "empId";
             this.empId.Size = new System.Drawing.Size(56, 16);
             this.empId.TabIndex = 5;
@@ -135,7 +136,7 @@
             // 
             this.empName.AutoSize = true;
             this.empName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empName.Location = new System.Drawing.Point(329, 260);
+            this.empName.Location = new System.Drawing.Point(460, 282);
             this.empName.Name = "empName";
             this.empName.Size = new System.Drawing.Size(84, 16);
             this.empName.TabIndex = 6;
@@ -145,7 +146,7 @@
             // 
             this.department.AutoSize = true;
             this.department.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.department.Location = new System.Drawing.Point(329, 305);
+            this.department.Location = new System.Drawing.Point(460, 327);
             this.department.Name = "department";
             this.department.Size = new System.Drawing.Size(88, 16);
             this.department.TabIndex = 7;
@@ -155,7 +156,7 @@
             // 
             this.role.AutoSize = true;
             this.role.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.role.Location = new System.Drawing.Point(329, 345);
+            this.role.Location = new System.Drawing.Point(460, 367);
             this.role.Name = "role";
             this.role.Size = new System.Drawing.Size(41, 16);
             this.role.TabIndex = 8;
@@ -165,7 +166,7 @@
             // 
             this.empIdValue.AutoSize = true;
             this.empIdValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empIdValue.Location = new System.Drawing.Point(441, 210);
+            this.empIdValue.Location = new System.Drawing.Point(575, 232);
             this.empIdValue.Name = "empIdValue";
             this.empIdValue.Size = new System.Drawing.Size(51, 16);
             this.empIdValue.TabIndex = 9;
@@ -175,7 +176,7 @@
             // 
             this.empNameValue.AutoSize = true;
             this.empNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empNameValue.Location = new System.Drawing.Point(441, 256);
+            this.empNameValue.Location = new System.Drawing.Point(575, 278);
             this.empNameValue.Name = "empNameValue";
             this.empNameValue.Size = new System.Drawing.Size(51, 16);
             this.empNameValue.TabIndex = 10;
@@ -185,7 +186,7 @@
             // 
             this.departmentValue.AutoSize = true;
             this.departmentValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departmentValue.Location = new System.Drawing.Point(441, 305);
+            this.departmentValue.Location = new System.Drawing.Point(575, 327);
             this.departmentValue.Name = "departmentValue";
             this.departmentValue.Size = new System.Drawing.Size(51, 16);
             this.departmentValue.TabIndex = 11;
@@ -195,7 +196,7 @@
             // 
             this.roleValue.AutoSize = true;
             this.roleValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleValue.Location = new System.Drawing.Point(444, 344);
+            this.roleValue.Location = new System.Drawing.Point(575, 366);
             this.roleValue.Name = "roleValue";
             this.roleValue.Size = new System.Drawing.Size(51, 16);
             this.roleValue.TabIndex = 12;
@@ -204,9 +205,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(351, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(489, 95);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 123);
+            this.pictureBox1.Size = new System.Drawing.Size(129, 123);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
@@ -214,20 +215,37 @@
             // 
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(29, 366);
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button14.Location = new System.Drawing.Point(23, 180);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(102, 83);
+            this.button14.Size = new System.Drawing.Size(180, 68);
             this.button14.TabIndex = 15;
             this.button14.Text = "Create";
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(466, 415);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(160, 40);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Logout";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // ManagerPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(571, 481);
+            this.ClientSize = new System.Drawing.Size(729, 508);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.roleValue);
@@ -273,5 +291,6 @@
         private System.Windows.Forms.Label roleValue;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -60,6 +60,7 @@ namespace HR_Application
                 Employee emp_obj = new Employee();
                 emp_obj.Emp_Register(emp_name, nic, contact,dep_id, pswd, email, gender, address,status,role_id);
                 MessageBox.Show("Employee Successfully Added");
+                this.Close();
             }
         }
 
