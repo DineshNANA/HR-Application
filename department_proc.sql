@@ -45,3 +45,14 @@ BEGIN
   RETURN employee_list;
 END hr_employee_list;
 /
+
+
+CREATE OR REPLACE FUNCTION hr_department_get (depId IN VARCHAR2)
+RETURN SYS_REFCURSOR IS department_details SYS_REFCURSOR;
+BEGIN
+  OPEN department_details FOR
+  SELECT * FROM HR_Department
+  WHERE dep_id = depId;
+  RETURN department_details;
+END hr_department_get;
+/

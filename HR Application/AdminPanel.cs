@@ -37,12 +37,11 @@ namespace HR_Application
             label6.Text = emp_data[0].ToString();
             label7.Text = emp_data[1].ToString();
             label8.Text = emp_data[6].ToString();
-           
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            EditDepartment addDept = new EditDepartment("Add");
+            AddDepartment addDept = new AddDepartment();
             addDept.Show();
         }
 
@@ -67,8 +66,8 @@ namespace HR_Application
 
         private void button7_Click(object sender, EventArgs e)
         {
-            SelectDepartment selectDept = new SelectDepartment("Select");
-            selectDept.Show();
+            EditDepartment editDepartment = new EditDepartment();
+            editDepartment.Show();
         }
 
         private void button9_Click(object sender, EventArgs e)

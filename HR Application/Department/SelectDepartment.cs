@@ -33,11 +33,6 @@ namespace HR_Application
                 this.Text = "Delete Department";
                 button1.Text = "Delete";
             }
-            else if (action == "Select")
-            {
-                this.Text = "Select Department";
-                button1.Text = "Select";
-            }
             else if (action == "EmpList")
             {
                 this.Text = "Select Department";
@@ -66,12 +61,6 @@ namespace HR_Application
                 else
                     MessageBox.Show("Unexpected error occured");
             
-            }
-            else if (action == "Select")
-            {
-                EditDepartment editDept = new EditDepartment("Edit", depId);
-                editDept.Show();
-                this.Close();
             }
             else if (action == "EmpList")
             {

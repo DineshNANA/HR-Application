@@ -26,7 +26,6 @@ namespace HR_Application
 
                 OracleCommand command = new OracleCommand("HR_DEPARTMENT_CREATE", connection);
                 command.CommandType = CommandType.StoredProcedure;
-
                
                 command.Parameters.Add("Dep_Name", OracleDbType.Varchar2, depName, ParameterDirection.Input);
                 command.Parameters.Add("Address", OracleDbType.Varchar2, address, ParameterDirection.Input);
@@ -221,6 +220,40 @@ namespace HR_Application
             finally { connection.Close(); }
 
             return depEmpList;
+        }
+
+
+        public ArrayList GetDepartment(string depId)
+        {
+            ArrayList deptDetails = new ArrayList();
+
+            try
+            {
+                connection.Open();
+
+                OracleCommand command = new OracleCommand("HR_DEPARTMENT_GET", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("department_details", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                command.Parameters.Add("department_id", OracleDbType.Varchar2, depId, ParameterDirection.Input);
+                OracleDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    deptDetails.Add(dataReader["dep_id"].ToString());
+                    deptDetails.Add(dataReader["dep_name"].ToString());
+                    deptDetails.Add(dataReader["address"].ToString());
+                    deptDetails.Add(dataReader["dep_head"].ToString());
+                }
+                dataReader.Close();
+                Console.WriteLine("Returning details of a Department");
+            }
+
+            catch (Exception e) { Console.WriteLine(e.Message); }
+
+            finally { connection.Close(); }
+
+            return deptDetails;
         }
 
     }
