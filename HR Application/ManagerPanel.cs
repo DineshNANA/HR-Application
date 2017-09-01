@@ -60,5 +60,11 @@ namespace HR_Application
             empNameValue.Text = emp_data[1].ToString();
             departmentValue.Text = emp_data[6].ToString();
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            AddTask addTask = new AddTask();
+            addTask.Show();
+        }
     }
 }

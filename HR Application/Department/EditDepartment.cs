@@ -29,7 +29,11 @@ namespace HR_Application
 
         private void button2_Click(object sender, EventArgs e)
         {
+            depName = textBox2.Text;
+            address = textBox3.Text;
+            depHead = comboBox1.Text;
 
+            department.editDetails(depId, depName, address, depHead);
         }
 
         private void button1_Click(object sender, EventArgs e)
