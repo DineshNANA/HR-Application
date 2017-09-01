@@ -56,7 +56,7 @@ namespace HR_Application
                 }
                 else if (role == "User")
                 {
-                    EmployeePanel employeePanel = new EmployeePanel();
+                    EmployeePanel employeePanel = new EmployeePanel(emp_id,role);
                     employeePanel.Show();
                 }
                  

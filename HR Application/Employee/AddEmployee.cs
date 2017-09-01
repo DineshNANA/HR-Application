@@ -11,6 +11,7 @@ using Oracle.DataAccess.Types;
 using Oracle.DataAccess.Client;
 using System.Text.RegularExpressions;
 using HR_Application.Role;
+ 
 
 
 namespace HR_Application
@@ -38,7 +39,7 @@ namespace HR_Application
         string Gender;
         private void button2_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(RoleSelect.Text) || String.IsNullOrEmpty(DepartmentSelect.Text))
+            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(RoleSelect.Text) || String.IsNullOrEmpty(DepartmentSelect.Text))
             {
                 MessageBox.Show("Please Fill The Values");
             }
@@ -94,23 +95,32 @@ namespace HR_Application
         }
 
 
-        //Email Validation
-        public bool NicValidate(string strIn)
+        //nic validation
+        public bool NicValidate(string str)
         {
             // Return true if strIn is in valid NIC format.
-            try
-            {
-                return Regex.IsMatch(strIn, "[0-9]{9}v", RegexOptions.IgnoreCase);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            
+                //string str = nicI.Text;
+                if ((str.Count(char.IsDigit) == 9) && // only 9 digits(NIC rule)            
+                str.EndsWith("V", StringComparison.OrdinalIgnoreCase) && //a letter at the end 'x' or 'v'(NIC rule)
+                (str[2] != '4' && str[2] != '9')) //3rd digit can not be equal to 4 or 9(NIC rle)
+                {
+
+                    return true;
+
+
+                }
+                else
+                {
+                    return false;
+                }
+            
+            
         }
 
-        private void textBox4_Validating(object sender, CancelEventArgs e)
+        public void textBox4_Validating(object sender, CancelEventArgs e)
         {
-            if (textBox4.Text == "" || NicValidate(textBox4.Text))
+            if (textBox4.Text == "" || !NicValidate(textBox4.Text))
             {
                 errorProvider1.SetError(textBox4, "Enter Correct NIC");
 
@@ -128,7 +138,7 @@ namespace HR_Application
             // Return true if strIn is in valid e-mail format.
             try
             {
-                return Regex.IsMatch(strIn, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" + @"(?                      (\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$", RegexOptions.IgnoreCase);
+                return Regex.IsMatch(strIn, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$", RegexOptions.IgnoreCase);
             }
             catch (Exception)
             {
@@ -138,7 +148,7 @@ namespace HR_Application
 
         private void textBox5_Validating(object sender, CancelEventArgs e)
         {
-            if (textBox5.Text == "" || EmailValidate(textBox5.Text))
+            if (textBox5.Text == "" || !EmailValidate(textBox5.Text))
             {
                 errorProvider1.SetError(textBox5, "Enter Correct Email");
 
@@ -168,7 +178,7 @@ namespace HR_Application
 
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
-            if (textBox1.Text == "")
+            if (textBox1.Text == "" || !ContactValidate(textBox1.Text))
             {
                 errorProvider1.SetError(textBox1, "Eg:0771234567");
 

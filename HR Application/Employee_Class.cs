@@ -379,6 +379,11 @@ namespace HR_Application
             return num;
         }
 
+        
+
+
+
+
         public ArrayList Get_Profile()
         {
             ArrayList emp_profile = new ArrayList();
@@ -427,6 +432,44 @@ namespace HR_Application
             }
             return emp_profile;
 
+        }
+
+        public ArrayList Get_Task_List(string emp_id)
+        {
+            ArrayList empList = new ArrayList();
+
+            try
+            {
+                conn.Open();
+
+                OracleCommand command = new OracleCommand("HR_GET_TASK_LIST", conn);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("return_value", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                OracleDataReader objReader = command.ExecuteReader();
+
+                OracleParameter p2 = command.Parameters.Add("a_emp_id", OracleDbType.Varchar2);
+                command.Parameters["a_emp_id"].Value = emp_id;
+                p2.Direction = ParameterDirection.Input;
+
+                while (objReader.Read())
+                {
+                    empList.Add(objReader["TASK_ID"].ToString() + " - " + objReader["TASK_NAME"].ToString());
+                }
+                Console.WriteLine("Returning Task list");
+                objReader.Close();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+            return empList;
         }
 
         
