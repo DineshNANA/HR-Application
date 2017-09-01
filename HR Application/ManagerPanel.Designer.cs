@@ -44,6 +44,7 @@
             this.departmentValue = new System.Windows.Forms.Label();
             this.roleValue = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -209,12 +210,25 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(29, 366);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(102, 83);
+            this.button14.TabIndex = 15;
+            this.button14.Text = "Create";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // ManagerPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(571, 414);
+            this.ClientSize = new System.Drawing.Size(571, 481);
+            this.Controls.Add(this.button14);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.roleValue);
             this.Controls.Add(this.departmentValue);
@@ -258,5 +272,6 @@
         private System.Windows.Forms.Label departmentValue;
         private System.Windows.Forms.Label roleValue;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button14;
     }
 }
