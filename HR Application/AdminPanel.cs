@@ -117,5 +117,10 @@ namespace HR_Application
             DeleteRole deleteRole = new DeleteRole();
             deleteRole.Show();
         }
+
+        private void AdminPanel_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
