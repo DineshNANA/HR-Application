@@ -84,8 +84,6 @@ namespace HR_Application
 
         private void button14_Click(object sender, EventArgs e)
         {
-            AddTask addTask = new AddTask();
-            addTask.Show();
         }
 
         private void button15_Click(object sender, EventArgs e)
