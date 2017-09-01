@@ -14,7 +14,8 @@ BEGIN
   UPDATE HR_Department
   SET dep_name = dep_name_new, address = address_new, dep_head = depHead_new
   WHERE dep_id = depId;
-END  hr_department_edit;
+  COMMIT;
+END hr_department_edit;
 /
 
 

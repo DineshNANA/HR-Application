@@ -26,7 +26,7 @@ namespace HR_Application
             ArrayList deptList = department.getDepartmentList();
 
             RoleClass roleClass = new RoleClass();
-            ArrayList roleList = roleClass.GetRoleList();
+            ArrayList roleList = roleClass.GetRoleListID();
 
             foreach (var dept in deptList) { DepartmentSelect.Items.Add(dept); }
             foreach (var role in roleList) { RoleSelect.Items.Add(role); }
